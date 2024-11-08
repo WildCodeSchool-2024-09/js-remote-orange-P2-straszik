@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%; 
+    font-size: 200%;
+    padding: 0 20px; 
+    color: whitesmoke;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; 
+    padding: 10px 0; 
+
+
+}
+.nav1, .nav2 {
+    display: flex;
+}
+
+.logo {
+    text-align: center;
+    font-weight: bold;
+}
+
+ul {
+    display: flex; 
+    list-style-type: none; 
+    margin: 0;
+    text-decoration: none;
+   
+}
+
+li {
+    margin: 0 15px; 
+    text-decoration: none;
+}
+.navbar a {
+    color: whitesmoke;
+    text-decoration: none; 
+}
