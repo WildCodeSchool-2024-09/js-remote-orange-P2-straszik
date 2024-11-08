@@ -1,21 +1,15 @@
 import "./App.css";
-import Navbar from './components/navBar/navbar';
-import Footer from './components/footer/footer';
-import BackgroundVideo from './components/background/background';
-
+import BackgroundVideo from "./components/background/background";
+import Footer from "./components/footer/footer";
+import Navbar from "./components/navBar/navbar";
 
 function App() {
   return (
     <div>
       <BackgroundVideo />
       <Navbar />
-
-
-
-
-
       <Footer />
-    </div >
+    </div>
   );
 }
 

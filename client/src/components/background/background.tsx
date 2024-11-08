@@ -1,5 +1,4 @@
-import React from 'react';
-import './Background.css';
+import "./Background.css";
 
 const BackgroundVideo = () => {
     return (
@@ -11,10 +10,8 @@ const BackgroundVideo = () => {
                 frameBorder="0"
                 allow="autoplay; fullscreen"
                 allowFullScreen
-            ></iframe>
-            <div className="content">
-                {/* Ajoutez ici le contenu de premier plan */}
-            </div>
+            />
+            <div className="content">{/* Add foreground content here */}</div>
         </div>
     );
 };
