@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './navbar.css';
-
+import BurgerMenu from './BurgerMenu';
 function Navbar() {
     return (
         <div className='navbar'>

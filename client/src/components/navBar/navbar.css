@@ -1,48 +1,87 @@
+/* Style de base pour la navbar */
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%; 
     font-size: 200%;
-    padding: 0 20px; 
+ 
     color: whitesmoke;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 10; 
-    padding: 10px 0; 
-
-
-}
-.nav1, .nav2 {
-    display: flex;
+   
 }
 
+/* Logo centré */
 .logo {
-    text-align: center;
     font-weight: bold;
+    text-align: center;
 }
 
-ul {
+/* Style des liens de navigation */
+.nav1, .nav2, ul {
     display: flex; 
     list-style-type: none; 
     margin: 0;
-    text-decoration: none;
-   
+    padding: 0;
 }
 
 li {
     margin: 0 15px; 
-    text-decoration: none;
 }
+
 .navbar a {
     color: whitesmoke;
     text-decoration: none; 
 }
 
+/* Styles spécifiques pour le menu burger */
+.burger-button {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+/* Styles en vue mobile */
 @media screen and (max-width: 912px) {
-    .navbar {
-        display: none
+    .nav1, .nav2, ul {
+        display: none; /* Cache les liens de navigation en version mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+    }
+
+    /* Classe pour afficher le menu burger ouvert */
+    .nav-links.open {
+        display: flex; /* Affiche le menu quand il est ouvert */
+    }
+
+    .burger-button {
+        display: block; /* Affiche le bouton burger en version mobile */
+    }
+}
+/* Cacher le burger menu sur les grands écrans */
+.burger-menu {
+    display: none;
+}
+
+/* Afficher le burger menu uniquement en responsive */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: inline-block;
+    }
+
+    /* Cacher les liens de navigation sur les petits écrans */
+    .nav-links {
+        display: none;
     }
 }
