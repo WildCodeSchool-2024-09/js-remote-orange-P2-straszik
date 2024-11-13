@@ -3,15 +3,13 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%; 
+    width: 100%;
     font-size: 200%;
- 
     color: whitesmoke;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10; 
-   
+    z-index: 10;
 }
 
 /* Logo centré */
@@ -22,19 +20,19 @@
 
 /* Style des liens de navigation */
 .nav1, .nav2, ul {
-    display: flex; 
-    list-style-type: none; 
+    display: flex;
+    list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
 li {
-    margin: 0 15px; 
+    margin: 0 15px;
 }
 
 .navbar a {
     color: whitesmoke;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 /* Styles spécifiques pour le menu burger */
@@ -48,7 +46,7 @@ li {
 }
 
 /* Styles en vue mobile */
-@media screen and (max-width: 912px) {
+@media screen and (max-width: 772px) {
     .nav1, .nav2, ul {
         display: none; /* Cache les liens de navigation en version mobile */
         flex-direction: column;
@@ -56,7 +54,6 @@ li {
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
         padding: 20px;
     }
 
@@ -67,21 +64,20 @@ li {
 
     .burger-button {
         display: block; /* Affiche le bouton burger en version mobile */
-    }
-}
-/* Cacher le burger menu sur les grands écrans */
-.burger-menu {
-    display: none;
-}
-
-/* Afficher le burger menu uniquement en responsive */
-@media (max-width: 768px) {
-    .burger-menu {
-        display: inline-block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
     }
 
-    /* Cacher les liens de navigation sur les petits écrans */
-    .nav-links {
-        display: none;
+    /* Centrer le logo uniquement en mobile */
+    .logo {
+        flex-grow: 0;  /* Annule l'effet de flex-grow */
+        text-align: center;
+        width: 100%; /* Permet de centrer le logo */
+    }
+    
+    /* Centrer les éléments de la navbar */
+    .navbar {
+        justify-content: center; /* Centre le logo et le menu burger */
     }
 }

@@ -1,4 +1,3 @@
-// pages/Albums.js
 import React, { useState } from 'react';
 import './album.css';
 import { Link } from 'react-router-dom';
@@ -29,13 +28,13 @@ function Albums() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const nextSlide = () => {
 
+    const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % albumCovers.length);
     };
 
-    const prevSlide = () => {
 
+    const prevSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + albumCovers.length) % albumCovers.length);
     };
 
@@ -46,7 +45,13 @@ function Albums() {
                     &lt;
                 </button>
 
-                <div className="carousel-track">
+                <div
+                    className="carousel-track"
+                    style={{
+                        transform: `translateX(-${currentIndex * 100}%)`,
+                        transition: "transform 0.5s ease-in-out",
+                    }}
+                >
                     {albumCovers.map((cover, index) => (
                         <div
                             key={cover.id}

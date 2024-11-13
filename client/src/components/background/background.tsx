@@ -92,7 +92,7 @@ const BackgroundVideo: React.FC = () => {
         {isMuted ? "🔇" : "🔊"}
       </button>
       <button type="button" className="change-video-button" onClick={changeVideo}>
-        🍥
+        🎲
       </button>
       <div className="content"></div>
     </div>

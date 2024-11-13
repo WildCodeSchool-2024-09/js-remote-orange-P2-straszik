@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import './navbar.css';
-import BurgerMenu from './BurgerMenu';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 function Navbar() {
     return (
         <div className='navbar'>
+            <BurgerMenu /* className="burger-menu" */ />
             <nav className="nav1">
                 <ul>
                     <li><Link to="/"><p><strong>Accueil</strong></p></Link></li>
