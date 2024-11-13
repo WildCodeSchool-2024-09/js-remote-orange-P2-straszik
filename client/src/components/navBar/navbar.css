@@ -1,3 +1,4 @@
+/* Style de la navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -12,9 +13,9 @@
     width: 100%;
     z-index: 10; 
     padding: 10px 0; 
-
-
 }
+
+/* Styles pour les éléments de la navbar */
 .nav1, .nav2 {
     display: flex;
 }
@@ -29,20 +30,22 @@ ul {
     list-style-type: none; 
     margin: 0;
     text-decoration: none;
-   
 }
 
 li {
     margin: 0 15px; 
     text-decoration: none;
 }
+
+/* Liens de la navbar */
 .navbar a {
     color: whitesmoke;
     text-decoration: none; 
 }
 
+/* Media query pour cacher la navbar sur petits écrans (avant modification responsive) */
 @media screen and (max-width: 912px) {
     .navbar {
-        display: none
+        display: none;
     }
 }
