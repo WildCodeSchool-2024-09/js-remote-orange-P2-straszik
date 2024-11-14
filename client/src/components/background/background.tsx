@@ -1,40 +1,55 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Background.css";
 
+// Définition du type Video
 type Video = {
   id: string;
   start: number;
   zoom: number;
 };
 
+// Liste des vidéos prédéfinies
+const videos: Video[] = [
+  { id: "BtyHYIpykN0", start: 0, zoom: 1.0 },
+  { id: "IOwom_Gp__Q", start: 15, zoom: 1.1 },
+  { id: "YdjO4EpEzZw", start: 15, zoom: 1.9 },
+  { id: "CEbJwZOkvDM", start: 20, zoom: 1.1 },
+];
+
+// Fonction pour obtenir une vidéo aléatoire
 const getRandomVideo = (): Video => {
-  const videos: Video[] = [
-    { id: "BtyHYIpykN0", start: 0, zoom: 1.0 },
-    { id: "IOwom_Gp__Q", start: 15, zoom: 1.1 },
-    { id: "YdjO4EpEzZw", start: 15, zoom: 1.9 },
-    { id: "CEbJwZOkvDM", start: 20, zoom: 1.1 },
-  ];
   const randomIndex = Math.floor(Math.random() * videos.length);
   return videos[randomIndex];
 };
 
+// Initialisation de l'API YouTube
+const loadYouTubeAPI = (onReady: () => void) => {
+  if (!window.YT) {
+    const script = document.createElement("script");
+    script.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(script);
+    window.onYouTubeIframeAPIReady = onReady;
+  } else {
+    onReady();
+  }
+};
+
 const BackgroundVideo: React.FC = () => {
-  const [isMuted, setIsMuted] = useState<boolean>(true);
-  const [videoId, setVideoId] = useState<string>(getRandomVideo().id);
-  const [startTime, setStartTime] = useState<number>(getRandomVideo().start);
-  const [zoom, setZoom] = useState<number>(getRandomVideo().zoom);
+  // États
+  const [isMuted, setIsMuted] = useState(true);
+  const [video, setVideo] = useState<Video>(getRandomVideo());
   const playerRef = useRef<any>(null);
 
+  // Effet pour initialiser et gérer le lecteur YouTube
   useEffect(() => {
     const onYouTubeIframeAPIReady = () => {
       if (playerRef.current) {
         playerRef.current.destroy();
       }
-
       playerRef.current = new window.YT.Player("youtube-player", {
-        videoId,
+        videoId: video.id,
         playerVars: {
-          start: startTime,
+          start: video.start,
           modestbranding: 1,
           controls: 0,
           rel: 0,
@@ -43,7 +58,7 @@ const BackgroundVideo: React.FC = () => {
           iv_load_policy: 3,
         },
         events: {
-          onReady: (event) => {
+          onReady: (event: { target: { playVideo: () => void; mute: () => any; unMute: () => any; }; }) => {
             event.target.playVideo();
             isMuted ? event.target.mute() : event.target.unMute();
           },
@@ -51,34 +66,21 @@ const BackgroundVideo: React.FC = () => {
       });
     };
 
-    if (!window.YT) {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-    } else {
-      onYouTubeIframeAPIReady();
-    }
-  }, [videoId, startTime]);
+    loadYouTubeAPI(onYouTubeIframeAPIReady);
+  }, [video, isMuted]);
 
-  const toggleMute = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  // Toggle du son
+  const toggleMute = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (playerRef.current) {
-      if (isMuted) {
-        playerRef.current.unMute();
-      } else {
-        playerRef.current.mute();
-      }
+      isMuted ? playerRef.current.unMute() : playerRef.current.mute();
       setIsMuted(!isMuted);
     }
   };
 
-  const changeVideo = (): void => {
-    const randomVideo = getRandomVideo();
-    setVideoId(randomVideo.id);
-    setStartTime(randomVideo.start);
-    setZoom(randomVideo.zoom);
+  // Change la vidéo au hasard
+  const changeVideo = () => {
+    setVideo(getRandomVideo());
   };
 
   return (
@@ -86,7 +88,7 @@ const BackgroundVideo: React.FC = () => {
       <div
         id="youtube-player"
         className="background-video"
-        style={{ transform: `translate(-50%, -50%) scale(${zoom})` }}
+        style={{ transform: `translate(-50%, -50%) scale(${video.zoom})` }}
       />
       <button type="button" className="mute-button" onClick={toggleMute}>
         {isMuted ? "🔇" : "🔊"}
@@ -94,7 +96,7 @@ const BackgroundVideo: React.FC = () => {
       <button type="button" className="change-video-button" onClick={changeVideo}>
         🎲
       </button>
-      <div className="content"></div>
+      <div className="content" />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import './AlbumItem.css';
+import "./AlbumItem.css";
 import AlbumList from "../../components/AlbumList/AlbumList";
 
 const albums = [
@@ -85,7 +85,7 @@ const albums = [
 ]
 
 function AlbumItem() {
-    const { id } = useParams();
+    useParams();
     return (
         <div className="backgroundalbum">
             <AlbumList albums={albums.map(album => ({ ...album, song: album.song.map(song => song.title) }))} />

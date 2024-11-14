@@ -13,7 +13,7 @@ function Navbar() {
             </nav>
 
             <div className="logo">
-                <img src="assets/images/Logo_PNL.png" alt="Logo PNL" />
+                <img src="/assets/images/Logo_PNL.png" alt="Logo PNL" />
             </div>
 
             <nav className="nav2">

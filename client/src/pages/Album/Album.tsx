@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './album.css';
 import { Link } from 'react-router-dom';
 
@@ -32,7 +32,6 @@ function Albums() {
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % albumCovers.length);
     };
-
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + albumCovers.length) % albumCovers.length);

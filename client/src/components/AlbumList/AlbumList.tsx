@@ -11,8 +11,8 @@ function AlbumList({ albums }: { albums: Album[] }) {
     return (
         <div>
             <h1>Album List</h1>
-            {albums?.map((album: Album) => (
-                <AlbumListItem album={album} />
+            {albums?.map((album: Album, key: number) => (
+                <AlbumListItem album={album} key={key} />
             ))}
         </div>
     );
