@@ -1,19 +1,19 @@
-
 body {
-    font-family: 'Sour Gummy', sans-serif;
-  }
-  
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .main-container {
-    flex: 1; /* L'élément .main-container occupe tout l'espace restant */
-  }
+  font-family: "Sour Gummy", sans-serif;
+}
 
- /* Masque la Navbar sur les petits écrans */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.main-container {
+  flex: 1; /* L'élément .main-container occupe tout l'espace restant */
+}
+
+/* Masque la Navbar sur les petits écrans */
 .navbar {
   display: block;
 }

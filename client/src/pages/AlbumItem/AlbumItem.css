@@ -1,16 +1,22 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
 
 .backgroundalbum {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(180deg, rgba(245, 104, 225, 1) 0%, rgba(40, 57, 156, 1) 50%, rgba(78, 87, 136, 1) 100%);
-    padding-top: 200px;
-    margin-bottom: 20px;
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 104, 225, 1) 0%,
+    rgba(40, 57, 156, 1) 50%,
+    rgba(78, 87, 136, 1) 100%
+  );
+  padding-top: 200px;
+  margin-bottom: 20px;
+  width: 100vw;
+  height: 100vh;
 }

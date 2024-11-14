@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Background.css";
 
 // Définition du type Video
@@ -38,6 +39,7 @@ const BackgroundVideo: React.FC = () => {
   // États
   const [isMuted, setIsMuted] = useState(true);
   const [video, setVideo] = useState<Video>(getRandomVideo());
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const playerRef = useRef<any>(null);
 
   // Effet pour initialiser et gérer le lecteur YouTube
@@ -58,7 +60,14 @@ const BackgroundVideo: React.FC = () => {
           iv_load_policy: 3,
         },
         events: {
-          onReady: (event: { target: { playVideo: () => void; mute: () => any; unMute: () => any; }; }) => {
+          onReady: (event: {
+            target: {
+              playVideo: () => void;
+              // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+              mute: () => any;
+              unMute: () => void;
+            };
+          }) => {
             event.target.playVideo();
             isMuted ? event.target.mute() : event.target.unMute();
           },
@@ -93,7 +102,11 @@ const BackgroundVideo: React.FC = () => {
       <button type="button" className="mute-button" onClick={toggleMute}>
         {isMuted ? "🔇" : "🔊"}
       </button>
-      <button type="button" className="change-video-button" onClick={changeVideo}>
+      <button
+        type="button"
+        className="change-video-button"
+        onClick={changeVideo}
+      >
         🎲
       </button>
       <div className="content" />

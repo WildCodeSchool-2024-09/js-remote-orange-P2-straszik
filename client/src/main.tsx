@@ -5,7 +5,9 @@ import App from "./App";
 
 const rootElement = document.getElementById("root");
 if (rootElement == null) {
-  throw new Error(`Votre document HTML doit contenir un élément <div id="root"></div>`);
+  throw new Error(
+    `Votre document HTML doit contenir un élément <div id="root"></div>`,
+  );
 }
 
 createRoot(rootElement).render(
@@ -13,5 +15,5 @@ createRoot(rootElement).render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );
