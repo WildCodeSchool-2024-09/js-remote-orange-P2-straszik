@@ -1,0 +1,55 @@
+.footer {
+  position: absolute; /* Le footer se positionne par rapport à la page */
+  bottom: 0; /* Il est collé en bas */
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  padding: 15px 0;
+  z-index: 10; /* S'assurer que le footer chevauche le fond */
+}
+
+/* Pour la gestion des icônes sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00acee;
+}
+
+.footer p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .social-icons {
+    gap: 8px;
+  }
+
+  .footer p {
+    font-size: 10px;
+  }
+}
