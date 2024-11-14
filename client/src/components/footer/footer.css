@@ -1,16 +1,18 @@
+/* Footer style */
 .footer {
-  position: absolute; /* Le footer se positionne par rapport à la page */
-  bottom: 0; /* Il est collé en bas */
+  position: absolute;
+  bottom: 0;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column; /* Aligner les éléments verticalement */
+  justify-content: center;
   align-items: center;
   color: white;
   padding: 15px 0;
-  z-index: 10; /* S'assurer que le footer chevauche le fond */
+  z-index: 10;
+  gap: 15px;
 }
 
-/* Pour la gestion des icônes sociales */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -18,20 +20,33 @@
 }
 
 .social-icons a {
-  color: white;
-  font-size: 24px;
-  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.social-icons a img {
+  width: 24px;
+  height: 24px;
 }
 
 .social-icons a:hover {
-  color: #00acee;
+  background-color:   rgb(168, 41, 241) ;
 }
 
-.footer p {
+.footer-text {
   font-size: 14px;
   color: #ccc;
+  display: none; /* Cacher le texte par défaut */
+  margin-top: 10px;
 }
 
+/* Responsive Styling */
 @media screen and (max-width: 768px) {
   .footer {
     flex-direction: column;
@@ -39,17 +54,25 @@
     justify-content: flex-end;
   }
 
-  .footer p {
+  .footer-text {
     font-size: 12px;
+    display: block; /* Afficher le texte en mode responsive */
   }
 }
 
 @media screen and (max-width: 480px) {
   .social-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
-  .footer p {
+  .social-icons a {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-text {
     font-size: 10px;
   }
 }

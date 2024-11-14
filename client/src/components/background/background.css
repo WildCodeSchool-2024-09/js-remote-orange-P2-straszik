@@ -1,16 +1,4 @@
-.background-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
+/* Bouton mute */
 .mute-button {
   position: fixed;
   bottom: 20px;
@@ -32,6 +20,7 @@
   transform: scale(1.1);
 }
 
+/* Bouton pour changer la vidéo */
 .change-video-button {
   position: fixed;
   bottom: 80px;
@@ -53,6 +42,21 @@
   transform: scale(1.1);
 }
 
+/* Pour la vidéo de fond */
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Responsivité pour la vidéo */
 @media screen and (max-width: 1024px) {
   .background-video {
     height: auto;

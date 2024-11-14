@@ -8,11 +8,20 @@ const Footer: React.FC = () => {
 
       <footer className="footer">
         <div className="social-icons">
-          <img src="/assets/images/icon-youtube.svg" alt="YouTube" />
-          <img src="/assets/images/icon-facebook.svg" alt="Facebook" />
-          <img src="/assets/images/icon-instagram.svg" alt="Instagram" />
+          <a href="https://www.youtube.com/channel/UCtBjt766LG9EDVKZx4Q4IHw" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/images/icon-youtube.svg" alt="YouTube" />
+          </a>
+          <a href="https://www.facebook.com/Pnlmusic/" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/images/icon-facebook.svg" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/pnlofficiel/" target="_blank" rel="noopener noreferrer">
+            <img src="/assets/images/icon-instagram.svg" alt="Instagram" />
+          </a>
+          <a href="https://twitter.com/pnlofficiel" target="_blank" rel="noopener noreferrer" className="st-icon">
+            <img src="/assets/images/icon-twitter.svg" alt="Twitter" />
+          </a>
         </div>
-        <p>© 2024 Wild Code School</p>
+        <p className="footer-text">© 2024 Wild Code School</p>
       </footer>
     </div>
   );
