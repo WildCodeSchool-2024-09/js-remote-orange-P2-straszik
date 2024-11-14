@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import { useState } from "react";
+
 import "./album.css";
 import { Link } from "react-router-dom";
 
@@ -7,18 +9,28 @@ function Albums() {
     {
       id: 1,
       src: "https://m.media-amazon.com/images/I/51aNO1PUtfL._UXNaN_FMjpg_QL85_.jpg",
+
+      title: "Que La Famille",
+
     },
     {
       id: 2,
       src: "https://cdns-images.dzcdn.net/images/cover/3c0d34f7576d81c8f269570d9806fb88/500x500.jpg",
+
+      title: "Le Monde Chico",
+
     },
     {
       id: 3,
       src: "https://m.media-amazon.com/images/I/71dFTmV2jgL._UF1000,1000_QL80_.jpg",
+      title: "Dans la legende ",
+
     },
     {
       id: 4,
       src: "https://i.scdn.co/image/ab67616d0000b2736c3966c4dd0eb2273696fe16",
+      title: "Deux fréres",
+
     },
   ];
 
@@ -32,7 +44,6 @@ function Albums() {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + albumCovers.length) % albumCovers.length,
     );
-  };
 
   return (
     <div className="albums-container">

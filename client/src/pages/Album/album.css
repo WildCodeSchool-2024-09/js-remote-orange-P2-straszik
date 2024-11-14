@@ -1,3 +1,4 @@
+
 /* General for the body and html */
 body,
 html {
@@ -13,10 +14,12 @@ html {
   justify-content: center;
   align-items: center;
   text-align: center;
+
   background-image: url("C:/Users/giova/js-remote-orange-P2-straszik/client/src/pages/Album/Pnl-Wallpaper-77583 (2).jpg");
   background-size: cover;
   background-position: 50% 10%;
   background-repeat: no-repeat;
+
   padding: 0;
   margin: 0;
   height: 100vh;
