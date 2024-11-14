@@ -1,5 +1,6 @@
 /* Général pour le body et html */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -12,7 +13,7 @@ body, html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url('./assets/images/albumbackground.png');
+  background-image: url("./assets/images/albumbackground.png");
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -96,6 +97,6 @@ body, html {
 /* Responsive Media Query */
 @media screen and (max-width: 762px) {
   .albums-container {
-    background-image: url('https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg');
+    background-image: url("https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg");
   }
 }
