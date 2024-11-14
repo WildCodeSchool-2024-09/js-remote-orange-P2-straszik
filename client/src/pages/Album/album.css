@@ -130,4 +130,8 @@ html {
   .albums-container {
     background-image: url("https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg");
   }
+  .carousel-slide.previous,
+  .carousel-slide.next {
+    display: none;
+  }
 }

@@ -43,6 +43,7 @@ const BackgroundVideo: React.FC = () => {
   const playerRef = useRef<any>(null);
 
   // Effet pour initialiser et gérer le lecteur YouTube
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     const onYouTubeIframeAPIReady = () => {
       if (playerRef.current) {
@@ -76,7 +77,7 @@ const BackgroundVideo: React.FC = () => {
     };
 
     loadYouTubeAPI(onYouTubeIframeAPIReady);
-  }, [video, isMuted]);
+  }, [video]);
 
   // Toggle du son
   const toggleMute = (event: React.MouseEvent<HTMLButtonElement>) => {

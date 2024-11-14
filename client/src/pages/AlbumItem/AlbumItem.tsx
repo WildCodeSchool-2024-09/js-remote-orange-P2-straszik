@@ -86,13 +86,23 @@ const albums = [
 
 function AlbumItem() {
   const { id } = useParams();
+  const album = albums.find((album) => album.id === Number.parseInt(id || "0"));
+
+  if (!album) {
+    return <div>Album not found</div>;
+  }
+
   return (
     <div className="backgroundalbum">
+      <h1>{album.title}</h1>
+      <p>{album.description}</p>
       <AlbumList
-        albums={albums.map((album) => ({
-          ...album,
-          song: album.song.map((song) => song.title),
-        }))}
+        albums={[
+          {
+            ...album,
+            song: album.song.map((song) => song.title),
+          },
+        ]}
       />
     </div>
   );
