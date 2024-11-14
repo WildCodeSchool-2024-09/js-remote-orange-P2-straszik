@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Background.css";
 
 type Video = {
@@ -91,7 +92,11 @@ const BackgroundVideo: React.FC = () => {
       <button type="button" className="mute-button" onClick={toggleMute}>
         {isMuted ? "🔇" : "🔊"}
       </button>
-      <button type="button" className="change-video-button" onClick={changeVideo}>
+      <button
+        type="button"
+        className="change-video-button"
+        onClick={changeVideo}
+      >
         🎲
       </button>
       <div className="content"></div>
