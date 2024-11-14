@@ -1,4 +1,5 @@
-/* Général pour le body et html */
+
+/* General for the body and html */
 body,
 html {
   margin: 0;
@@ -13,14 +14,15 @@ html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url("./assets/images/albumbackground.png");
+
+  background-image: url("C:/Users/giova/js-remote-orange-P2-straszik/client/src/pages/Album/Pnl-Wallpaper-77583 (2).jpg");
+  background-size: cover;
+  background-position: 50% 10%;
+  background-repeat: no-repeat;
+
   padding: 0;
   margin: 0;
   height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-image 0.5s ease-in-out;
 }
 
 .albums-container h2 {
@@ -28,38 +30,73 @@ html {
   font-size: 24px;
 }
 
-/* Carousel Styles */
+/* Carousel container adjustments */
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
+  max-width: 50em;
+  margin: auto;
   overflow: hidden;
+  border-radius: 5em;
+  border: 5px solid whitesmoke;
+  background-color: transparent;
 }
 
+/* Carousel track styling */
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
+  position: relative;
 }
 
+/* General slide styling */
 .carousel-slide {
   min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.album-cover {
+.carousel-slide img {
   width: 100%;
   height: auto;
   max-width: 300px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4em;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Carousel Buttons */
+/* Active slide styling */
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+/* Styling for previous and next slides */
+.carousel-slide.previous,
+.carousel-slide.next {
+  opacity: 0.6;
+  transform: scale(0.7);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0.7);
+  z-index: 1;
+}
+
+.carousel-slide.previous {
+  left: -35%; /* previous slide positioned to the left */
+}
+
+.carousel-slide.next {
+  right: -35%; /* next slide positioned to the right */
+}
+
+/* Carousel buttons */
 .carousel-button {
   position: absolute;
   top: 50%;
@@ -75,26 +112,21 @@ html {
 
 .carousel-button.prev {
   left: 10px;
+  font-size: 3em;
+  background-color: transparent;
 }
 
 .carousel-button.next {
   right: 10px;
+  font-size: 3em;
+  background-color: transparent;
 }
 
 .carousel-button:focus {
   outline: none;
 }
 
-/* Active/Inactive Slide */
-.carousel-slide.active {
-  opacity: 1;
-}
-
-.carousel-slide:not(.active) {
-  opacity: 0;
-}
-
-/* Responsive Media Query */
+/* Responsive media query */
 @media screen and (max-width: 762px) {
   .albums-container {
     background-image: url("https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg");

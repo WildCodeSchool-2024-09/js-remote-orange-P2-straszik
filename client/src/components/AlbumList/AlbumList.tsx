@@ -13,6 +13,7 @@ function AlbumList({ albums }: { albums: Album[] }) {
       <h1>Album List</h1>
       {albums?.map((album: Album) => (
         <AlbumListItem album={album} key={album.id} />
+
       ))}
     </div>
   );
