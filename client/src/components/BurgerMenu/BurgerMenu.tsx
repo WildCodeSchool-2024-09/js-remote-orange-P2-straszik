@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BurgerMenu.css"; // Assurez-vous que le CSS est bien appliqué
@@ -8,7 +7,6 @@ const BurgerMenu = () => {
 
   // Fonction pour ouvrir/fermer le menu
   const toggleMenu = () => {
-
     setIsOpen(!isOpen); // Inverse l'état de isOpen
   };
 

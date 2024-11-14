@@ -1,4 +1,3 @@
-
 /* General for the body and html */
 body,
 html {
@@ -15,7 +14,7 @@ html {
   align-items: center;
   text-align: center;
 
-  background-image: url("C:/Users/giova/js-remote-orange-P2-straszik/client/src/pages/Album/Pnl-Wallpaper-77583 (2).jpg");
+  background-image: url("./PnlWallpaper.jpg");
   background-size: cover;
   background-position: 50% 10%;
   background-repeat: no-repeat;
