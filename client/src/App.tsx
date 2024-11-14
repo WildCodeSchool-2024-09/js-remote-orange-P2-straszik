@@ -13,8 +13,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Accueil />} />
+        <Route path="/album/:id" element={<AlbumItem />} />
         <Route path="/albums" element={<Albums />} />
-        <Route path="/album/1" element={<AlbumItem />} />
         {/* <Route path="/concerts" element={<concerts />} /> */}
       </Routes>
       <Footer />

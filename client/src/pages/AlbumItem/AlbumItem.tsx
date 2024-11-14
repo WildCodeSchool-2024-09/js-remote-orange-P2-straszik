@@ -85,7 +85,7 @@ const albums = [
 ];
 
 function AlbumItem() {
-  useParams();
+  const { id } = useParams();
   return (
     <div className="backgroundalbum">
       <AlbumList
