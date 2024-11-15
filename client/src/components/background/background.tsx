@@ -13,8 +13,11 @@ type Video = {
 const videos: Video[] = [
   { id: "BtyHYIpykN0", start: 0, zoom: 1.0 },
   { id: "IOwom_Gp__Q", start: 15, zoom: 1.1 },
-  { id: "YdjO4EpEzZw", start: 15, zoom: 1.9 },
-  { id: "CEbJwZOkvDM", start: 20, zoom: 1.1 },
+  { id: "YdjO4EpEzZw", start: 15, zoom: 1.5 },
+  { id: "CEbJwZOkvDM", start: 20, zoom: 1.5 },
+  { id: "u8bHjdljyLw", start: 25, zoom: 1.5 },
+  { id: "vNpl-M3_9_o", start: 15, zoom: 1.5 },
+  { id: "NmweQ43916w", start: 23, zoom: 1.5 },
 ];
 
 // Fonction pour obtenir une vidéo aléatoire

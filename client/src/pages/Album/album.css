@@ -36,8 +36,6 @@ html {
   max-width: 50em;
   margin: auto;
   overflow: hidden;
-  border-radius: 5em;
-  border: 5px solid whitesmoke;
   background-color: transparent;
 }
 
