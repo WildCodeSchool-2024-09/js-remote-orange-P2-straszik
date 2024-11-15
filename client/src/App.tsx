@@ -6,6 +6,7 @@ import Navbar from "./components/navBar/navbar";
 import Accueil from "./pages/Accueil/Accueil";
 import Albums from "./pages/Album/Album";
 import AlbumItem from "./pages/AlbumItem/AlbumItem";
+import '@fontsource/zilla-slab';
 // import concerts from "./pages/concerts/concerts";
 function App() {
   return (

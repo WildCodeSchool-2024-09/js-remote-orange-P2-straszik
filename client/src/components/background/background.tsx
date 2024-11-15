@@ -1,7 +1,7 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import "./Background.css";
-
+import '@fontsource/zilla-slab';
 // Définition du type Video
 type Video = {
   id: string;
@@ -12,10 +12,12 @@ type Video = {
 // Liste des vidéos prédéfinies
 const videos: Video[] = [
   { id: "BtyHYIpykN0", start: 0, zoom: 1.0 },
-  { id: "IOwom_Gp__Q", start: 15, zoom: 1.1 },
+  { id: "IOwom_Gp__Q", start: 15, zoom: 1.5 },
   { id: "YdjO4EpEzZw", start: 15, zoom: 1.9 },
-  { id: "CEbJwZOkvDM", start: 20, zoom: 1.1 },
-];
+  { id: "CEbJwZOkvDM", start: 20, zoom: 1.5 },
+  { id: "u8bHjdljyLw", start: 25, zoom: 1.5 },
+  { id: "vNpl-M3_9_o", start: 53, zoom: 1.4 },
+]
 
 // Fonction pour obtenir une vidéo aléatoire
 const getRandomVideo = (): Video => {
