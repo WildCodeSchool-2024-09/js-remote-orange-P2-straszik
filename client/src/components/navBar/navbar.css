@@ -85,3 +85,19 @@ li {
     justify-content: center; /* Centre le logo et le menu burger */
   }
 }
+/* Masque la Navbar sur les petits écrans */
+
+.burger-menu {
+  display: none;
+}
+
+/* Sur les petits écrans (par exemple, moins de 700px), masque la Navbar et affiche le BurgerMenu */
+@media (max-width: 700px) {
+  .navbar {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+}
