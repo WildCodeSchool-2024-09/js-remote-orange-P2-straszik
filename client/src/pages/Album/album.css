@@ -95,7 +95,7 @@ html {
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   border: none;
-  color: #ffffff;
+  color: rgba(78, 87, 136, 1);
   font-size: 3em;
   cursor: pointer;
   z-index: 10;
