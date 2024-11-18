@@ -1,74 +1,9 @@
-/* Vidéo de fond */
-.background-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-/* Bouton mute */
-.mute-button,
-.change-video-button {
-  position: absolute;
-  bottom: 20px; /* Positionné en bas */
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
-  padding: 12px;
-  font-size: 22px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 11;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-  width: 50px; /* Taille ajustée pour plus de cohérence */
-  height: 50px; /* Taille ajustée pour plus de cohérence */
-  margin: 0 10px; /* Marge autour des boutons */
-}
-
-/* Alignement des boutons */
-.mute-button {
-  left: 5%; /* Aligné à 5% du côté gauche */
-}
-
-.change-video-button {
-  right: 5%; /* Aligné à 5% du côté droit */
-}
-
-/* Effet au survol */
-.mute-button:hover,
-.change-video-button:hover {
-  background: rgba(0, 0, 0, 0.8);
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsivité pour les boutons */
-@media screen and (max-width: 768px) {
-  .mute-button {
-    bottom: 30px;
-    left: 5%;
-  }
-
-  .change-video-button {
-    bottom: 30px;
-    right: 5%;
-  }
-}
-
 /* Footer style */
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 30px; /* Ajuste cette valeur pour le remonter */
   width: 100%;
   display: flex;
-  flex-direction: row; /* Aligner les éléments verticalement */
   justify-content: center;
   align-items: center;
   color: white;
@@ -103,16 +38,28 @@
   background-color: rgb(168, 41, 241);
 }
 
+/* Texte à côté des icônes */
 .footer-text {
-  
-  font-family: none;
+  font-family: Arial, sans-serif;
   font-size: 14px;
   flex-direction: row;
   color: #ccc;
-  margin-top: 10px;
+  margin-left: 15px; /* Espacement entre les icônes et le texte */
 }
 
 /* Responsive Styling */
+@media screen and (max-width: 1024px) {
+  .footer {
+    flex-direction: row; /* En ligne (horizontal) pour les laptops */
+    justify-content: space-between; /* Espacement entre le texte et les icônes */
+  }
+
+  .footer-text {
+    font-size: 14px;
+    display: inline-block; /* Assurer que le texte soit visible */
+  }
+}
+
 @media screen and (max-width: 768px) {
   .footer {
     flex-direction: column;
@@ -127,15 +74,14 @@
     flex-direction: column;
     display: block; /* Afficher le texte en mode responsive */
   }
-}
-
-@media screen and (max-width: 480px) {
   .social-icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
+}
 
+@media screen and (max-width: 480px) {
   .social-icons a {
     width: 30px;
     height: 30px;
@@ -143,5 +89,22 @@
 
   .footer-text {
     font-size: 10px;
+  }
+}
+.navbar {
+  display: block;
+}
+
+.burger-menu {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
   }
 }

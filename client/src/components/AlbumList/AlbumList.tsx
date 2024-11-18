@@ -6,13 +6,18 @@ type Album = {
   title: string;
   imgSrc: string;
   description: string;
-  song: string[];
+  songs: Song[];
+};
+
+type Song = {
+  id: number;
+  title: string;
+  audioSrc: string;
 };
 
 function AlbumList({ albums }: { albums: Album[] }) {
   return (
     <div className="album-list">
-      <h1>Album List</h1>
       {albums?.map((album: Album) => (
         <AlbumListItem album={album} key={album.id} />
       ))}
