@@ -307,7 +307,7 @@ const albums = [
       {
         id: 18,
         title: "Capuche",
-        audioSrc: "/audio/Deux_Frres/18_Capuche.mp3",
+        audioSrc: "/audio/Deux_Freres/18_Capuche.mp3",
       },
     ],
   },
