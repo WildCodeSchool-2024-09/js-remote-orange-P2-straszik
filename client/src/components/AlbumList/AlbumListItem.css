@@ -1,0 +1,18 @@
+body {
+  background-color: #121212;
+}
+
+.album-list-item {
+  width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+}
+
+.album-title {
+  color: white;
+  margin: 0;
+}
+
+.album-description {
+  color: white;
+}
