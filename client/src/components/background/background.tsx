@@ -1,7 +1,7 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import "./Background.css";
-
+import "@fontsource/zilla-slab";
 // Définition du type Video
 type Video = {
   id: string;
