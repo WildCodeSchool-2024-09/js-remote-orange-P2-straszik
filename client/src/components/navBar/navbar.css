@@ -1,4 +1,11 @@
 /* Style de base pour la navbar */
+
+.faculty-glyphic-regular {
+  font-family: "Faculty Glyphic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -6,7 +13,7 @@
   width: 100%;
   font-size: 200%;
   color: whitesmoke;
-  position: fixed;
+  position: static;
   top: 0;
   left: 0;
   z-index: 10;

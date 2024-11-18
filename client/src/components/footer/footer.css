@@ -1,7 +1,7 @@
 /* Footer style */
 .footer {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 30px; /* Ajuste cette valeur pour le remonter */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -42,6 +42,7 @@
 .footer-text {
   font-family: Arial, sans-serif;
   font-size: 14px;
+  flex-direction: row;
   color: #ccc;
   margin-left: 15px; /* Espacement entre les icônes et le texte */
 }
@@ -64,21 +65,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    position: absolute;
+    bottom: 5px;
   }
 
   .footer-text {
     font-size: 12px;
+    flex-direction: column;
     display: block; /* Afficher le texte en mode responsive */
   }
-}
-
-@media screen and (max-width: 480px) {
   .social-icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
+}
 
+@media screen and (max-width: 480px) {
   .social-icons a {
     width: 30px;
     height: 30px;
@@ -86,5 +89,22 @@
 
   .footer-text {
     font-size: 10px;
+  }
+}
+.navbar {
+  display: block;
+}
+
+.burger-menu {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
   }
 }
