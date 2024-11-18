@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Boutique.css";
 
 interface Goodie {
@@ -10,7 +10,7 @@ interface Goodie {
 
 function Boutique() {
   // Utilisation de useState pour stocker les données
-  const [goodies, setGoodies] = useState([]);
+  const [goodies, setGoodies] = useState<Goodie[]>([]);
 
   // Utilisation de useEffect pour charger les données dès le rendu du composant
   useEffect(() => {
@@ -30,7 +30,7 @@ function Boutique() {
         {goodies.length > 0 ? (
           goodies.map((goodie) => (
             <div className="goodie-card" key={goodie.id}>
-              <h2>{goodie.N om}</h2>
+              <h2>{goodie.nom}</h2>
               {goodie.image_url && (
                 <img
                   src={goodie.image_url}

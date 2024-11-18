@@ -30,8 +30,7 @@ const albums = [
       {
         id: 5,
         title: "De la fenêtre au Ter Ter",
-        audioSrc:
-          "/audio/Que_la_Famille/05_De_la_fenetre_au_ter_ter_feat_bizon_ilinas_and_spion.mp3",
+        audioSrc: "/audio/Que_la_Famille/05_De_la_fenetre_au_ter_ter.mp3",
       },
       { id: 6, title: "PNL", audioSrc: "/audio/Que_la_Famille/06_PNL.mp3" },
       {
@@ -73,7 +72,7 @@ const albums = [
       "https://cdns-images.dzcdn.net/images/cover/3c0d34f7576d81c8f269570d9806fb88/500x500.jpg",
     description:
       "Le Monde Chico est le premier album studio de PNL, sorti le 30 octobre 2015.",
-    song: [
+    songs: [
       {
         id: 1,
         title: "Le monde ou rien",
@@ -165,7 +164,7 @@ const albums = [
       "https://m.media-amazon.com/images/I/71dFTmV2jgL._UF1000,1000_QL80_.jpg",
     description:
       "Dans la légende est le deuxième album studio de PNL, sorti le 16 septembre 2016.",
-    song: [
+    songs: [
       { id: 1, title: "Da", audioSrc: "/audio/Dans_La_Legende/01_Da.mp3" },
       { id: 2, title: "Naha", audioSrc: "/audio/Dans_La_Legende/02_Naha.mp3" },
       {
@@ -177,7 +176,7 @@ const albums = [
       {
         id: 5,
         title: "J'suis QLF",
-        audioSrc: "/audio/Dans_La_Legende/05_Jsuis_QLF.mp3",
+        audioSrc: "/audio/Dans_La_Legende/05_J'suis_QLF.mp3",
       },
       {
         id: 6,
@@ -243,72 +242,72 @@ const albums = [
     imgSrc: "https://i.scdn.co/image/ab67616d0000b2736c3966c4dd0eb2273696fe16",
     description:
       "Deux Frères est le quatrième album studio de PNL, sorti le 5 avril 2019.",
-    song: [
-      { id: 1, title: "Au DD", audioSrc: "/audio/Deux_Frères/01_Au_DD.mp3" },
+    songs: [
+      { id: 1, title: "Au DD", audioSrc: "/audio/Deux_Freres/01_Au_DD.mp3" },
       {
         id: 2,
         title: "Autre Monde",
-        audioSrc: "/audio/Deux_Frères/02_Autre_Monde.mp3",
+        audioSrc: "/audio/Deux_Freres/02_Autre_Monde.mp3",
       },
-      { id: 3, title: "Chang", audioSrc: "/audio/Deux_Frères/03_Chang.mp3" },
-      { id: 4, title: "Blanka", audioSrc: "/audio/Deux_Frères/04_Blanka.mp3" },
-      { id: 5, title: "91's", audioSrc: "/audio/Deux_Frères/05_91s.mp3" },
+      { id: 3, title: "Chang", audioSrc: "/audio/Deux_Freres/03_Chang.mp3" },
+      { id: 4, title: "Blanka", audioSrc: "/audio/Deux_Freres/04_Blanka.mp3" },
+      { id: 5, title: "91's", audioSrc: "/audio/Deux_Freres/05_91s.mp3" },
       {
         id: 6,
         title: "À l'ammoniaque",
-        audioSrc: "/audio/Deux_Frères/06_A_l_ammoniaque.mp3",
+        audioSrc: "/audio/Deux_Freres/06_A_l_ammoniaque.mp3",
       },
       {
         id: 7,
         title: "Celsius",
-        audioSrc: "/audio/Deux_Frères/07_Celsius.mp3",
+        audioSrc: "/audio/Deux_Freres/07_Celsius.mp3",
       },
       {
         id: 8,
-        title: "Deux Frères",
-        audioSrc: "/audio/Deux_Frères/08_Deux_Freres.mp3",
+        title: "Deux Freres",
+        audioSrc: "/audio/Deux_Freres/08_Deux_Freres.mp3",
       },
       {
         id: 9,
         title: "Hasta la Vista",
-        audioSrc: "/audio/Deux_Frères/09_Hasta_la_vista.mp3",
+        audioSrc: "/audio/Deux_Freres/09_Hasta_la_vista.mp3",
       },
-      { id: 10, title: "Coeurs", audioSrc: "/audio/Deux_Frères/10_Coeurs.mp3" },
+      { id: 10, title: "Coeurs", audioSrc: "/audio/Deux_Freres/10_Coeurs.mp3" },
       {
         id: 11,
         title: "Shenmue",
-        audioSrc: "/audio/Deux_Frères/11_Shenmue.mp3",
+        audioSrc: "/audio/Deux_Freres/11_Shenmue.mp3",
       },
       {
         id: 12,
         title: "Kuta Ubud",
-        audioSrc: "/audio/Deux_Frères/12_Kuta_Ubud.mp3",
+        audioSrc: "/audio/Deux_Freres/12_Kuta_Ubud.mp3",
       },
-      { id: 13, title: "Menace", audioSrc: "/audio/Deux_Frères/13_Menace.mp3" },
+      { id: 13, title: "Menace", audioSrc: "/audio/Deux_Freres/13_Menace.mp3" },
       {
         id: 14,
         title: "Zoulou Tchaing",
-        audioSrc: "/audio/Deux_Frères/14_Zoulou_Tchaing.mp3",
+        audioSrc: "/audio/Deux_Freres/14_Zoulou_Tchaing.mp3",
       },
       {
         id: 15,
         title: "Déconnecté",
-        audioSrc: "/audio/Deux_Frères/15_Deconnecte.mp3",
+        audioSrc: "/audio/Deux_Freres/15_Deconnecte.mp3",
       },
       {
         id: 16,
         title: "La misère est si belle",
-        audioSrc: "/audio/Deux_Frères/16_La_misere_est_si_belle.mp3",
+        audioSrc: "/audio/Deux_Freres/16_La_misere_est_si_belle.mp3",
       },
       {
         id: 17,
         title: "Frontières",
-        audioSrc: "/audio/Deux_Frères/17_Frontieres.mp3",
+        audioSrc: "/audio/Deux_Freres/17_Frontieres.mp3",
       },
       {
         id: 18,
         title: "Capuche",
-        audioSrc: "/audio/Deux_Frères/18_Capuche.mp3",
+        audioSrc: "/audio/Deux_Freres/18_Capuche.mp3",
       },
     ],
   },
