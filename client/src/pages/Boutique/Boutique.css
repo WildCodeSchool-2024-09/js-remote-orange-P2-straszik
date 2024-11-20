@@ -46,6 +46,7 @@ h1 {
   position: absolute;
 }
 
+<<<<<<< HEAD
 .footer {
   position: relative;
   display: flex;
@@ -53,3 +54,8 @@ h1 {
   align-items: flex-end;
   width: 100%;
 }
+=======
+/* .footer {
+  position: fixed;
+} */
+>>>>>>> 440d3facc5c207cd77d68ac1c6af3fee0a2d1ca6

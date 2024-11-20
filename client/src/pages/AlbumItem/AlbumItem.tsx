@@ -8,8 +8,11 @@ const albums = [
     title: "Que la Famille",
     imgSrc:
       "https://m.media-amazon.com/images/I/51aNO1PUtfL._UXNaN_FMjpg_QL85_.jpg",
-    description:
-      "Que la famille est le premier EP du duo de rap français PNL, sorti le 2 mars 2015.",
+    description: `
+      Que la famille est le premier EP du duo de rap français PNL, sorti le 2 mars 2015 
+      sous leur label QLF Records. L'EP précède leur premier album studio, Le Monde Chico. 
+      Il a été enregistré, mixé et masterisé par Nikola Feve, également connu sous le nom de Nk.F1.
+    `,
     songs: [
       {
         id: 1,
@@ -70,8 +73,13 @@ const albums = [
     title: "Le Monde Chico",
     imgSrc:
       "https://cdns-images.dzcdn.net/images/cover/3c0d34f7576d81c8f269570d9806fb88/500x500.jpg",
-    description:
-      "Le Monde Chico est le premier album studio de PNL, sorti le 30 octobre 2015.",
+
+    description: `
+    Le Monde Chico est le premier album studio du duo de rap français PNL, sorti le 30 octobre 2015 
+    sous leur label QLF Records. Avec cet album, PNL affirme son identité musicale en mêlant poésie urbaine 
+    et productions planantes. L'album a été enregistré, mixé et masterisé par Nikola Feve, 
+    offrant une immersion sonore d'une qualité exceptionnelle.
+  `,
     songs: [
       {
         id: 1,
@@ -162,8 +170,12 @@ const albums = [
     title: "Dans La Légende",
     imgSrc:
       "https://m.media-amazon.com/images/I/71dFTmV2jgL._UF1000,1000_QL80_.jpg",
-    description:
-      "Dans la légende est le deuxième album studio de PNL, sorti le 16 septembre 2016.",
+    description: `
+      Dans La Légende est le deuxième album studio du duo de rap français PNL, sorti le 16 septembre 2016 
+      sous leur label QLF Records. Cet opus, acclamé par la critique, explore des thèmes introspectifs 
+      tout en consolidant leur esthétique musicale. Le duo y livre des morceaux emblématiques tels que 
+      "Naha" et "Onizuka", qui sont devenus des classiques du rap français.
+    `,
     songs: [
       { id: 1, title: "Da", audioSrc: "/audio/Dans_La_Legende/01_Da.mp3" },
       { id: 2, title: "Naha", audioSrc: "/audio/Dans_La_Legende/02_Naha.mp3" },
@@ -240,8 +252,13 @@ const albums = [
     id: 4,
     title: "Deux Frères",
     imgSrc: "https://i.scdn.co/image/ab67616d0000b2736c3966c4dd0eb2273696fe16",
-    description:
-      "Deux Frères est le quatrième album studio de PNL, sorti le 5 avril 2019.",
+    description: `
+    Deux Frères est le troisième album studio du duo de rap français PNL, sorti le 5 avril 2019 
+    sous leur label QLF Records. Cet album marque une évolution dans leur narration, 
+    explorant des thèmes tels que la fraternité et la résilience. 
+    Enregistré, mixé et masterisé par Nikola Feve, il inclut des titres phares tels que "Au DD" et "Deux Frères", 
+    qui témoignent de leur capacité à captiver un large public tout en restant fidèles à leur univers.
+  `,
     songs: [
       { id: 1, title: "Au DD", audioSrc: "/audio/Deux_Freres/01_Au_DD.mp3" },
       {
@@ -322,7 +339,7 @@ function AlbumItem() {
   }
 
   return (
-    <div className="backgroundalbum">
+    <div className="background-album">
       <AlbumList albums={[album]} />
     </div>
   );
