@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./AlbumListItem.css";
 
 type Album = {
@@ -15,6 +16,16 @@ type Song = {
 };
 
 function AlbumListItem({ album }: { album: Album }) {
+  const [visibleSongs, setVisibleSongs] = useState(10);
+
+  const showMoreSongs = () => {
+    setVisibleSongs((prev) => (prev + 10 > album.songs.length ? album.songs.length : prev + 10));
+  };
+
+  const showLessSongs = () => {
+    setVisibleSongs(10);
+  };
+
   return (
     <div className="album-list-item" key={album.id}>
       <div className="album-info">
@@ -23,10 +34,10 @@ function AlbumListItem({ album }: { album: Album }) {
         <p className="album-description">{album.description}</p>
       </div>
       <div className="album-song-list">
-        {album.songs.map((song) => (
+        {album.songs.slice(0, visibleSongs).map((song) => (
           <div className="album-song-item" key={song.id}>
             <div className="album-song-info">
-              <p>{song.title}</p>
+              <p className="album-song-title">{song.title}</p>
               {song.audioSrc ? (
                 <audio className="album-song-audio" controls>
                   <source src={song.audioSrc} type="audio/mp3" />
@@ -37,6 +48,17 @@ function AlbumListItem({ album }: { album: Album }) {
             </div>
           </div>
         ))}
+        <div className="album-song-controls">
+          {visibleSongs < album.songs.length ? (
+            <button className="album-show-more" onClick={showMoreSongs}>
+              Afficher plus
+            </button>
+          ) : (
+            <button className="album-show-less" onClick={showLessSongs}>
+              Afficher moins
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

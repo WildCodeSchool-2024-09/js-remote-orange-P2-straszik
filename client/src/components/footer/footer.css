@@ -1,6 +1,5 @@
 /* Footer style */
 .footer {
-  position: fixed;
   bottom: 30px; /* Ajuste cette valeur pour le remonter */
   width: 100%;
   display: flex;
@@ -10,8 +9,11 @@
   padding: 15px 0;
   z-index: 10;
   gap: 15px;
+  background-color: transparent; /* S'assurer qu'il soit transparent */
+  position: fixed; /* Garder le footer fixé */
 }
 
+/* Reste des styles du footer */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -91,20 +93,14 @@
     font-size: 10px;
   }
 }
-.navbar {
-  display: block;
+
+/* Resetting background color for body to prevent unwanted background on footer */
+body {
+  background-color: transparent; /* Assurer que le fond est transparent */
+  margin-bottom: 0; /* Retirer toute marge en bas */
 }
 
-.burger-menu {
-  display: none;
-}
-
-@media (max-width: 700px) {
-  .navbar {
-    display: none;
-  }
-
-  .burger-menu {
-    display: block;
-  }
+/* Pour la page de base (accueil et album) */
+body.home, body.album {
+  background-color: transparent; /* S'assurer que le fond reste transparent */
 }
