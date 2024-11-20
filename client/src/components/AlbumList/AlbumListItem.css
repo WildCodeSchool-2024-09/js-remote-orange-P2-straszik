@@ -77,9 +77,6 @@
   width: 70%;
   font-size: 16px;
   color: white;
-  text-overflow: ellipsis; /* Ajoute ça pour gérer le texte trop long */
-  white-space: nowrap; /* Empêche le texte de se casser */
-  overflow: hidden; /* Cache le texte qui dépasse */
 }
 
 .album-song-number {

@@ -340,7 +340,7 @@ function AlbumItem() {
 
   return (
     <div className="background-album">
-      <AlbumList album={album} />
+      <AlbumList albums={[album]} />
     </div>
   );
 }
