@@ -18,6 +18,10 @@ type Album = {
 function AlbumListItem({ album }: { album: Album }) {
   const [visibleSongs, setVisibleSongs] = useState(10);
   const [isPlaying, setIsPlaying] = useState<number | null>(null);
+  const [songStates, setSongStates] = useState<{
+    [key: number]: { volume: number; isMuted: boolean };
+  }>({});
+
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
 
   const showMoreSongs = () => {
@@ -43,8 +47,36 @@ function AlbumListItem({ album }: { album: Album }) {
     }
   };
 
+  const handleVolumeChange = (songId: number, value: number) => {
+    const audioElement = audioRefs.current[songId];
+    if (audioElement) {
+      audioElement.volume = value;
+    }
+    setSongStates((prev) => ({
+      ...prev,
+      [songId]: { ...prev[songId], volume: value, isMuted: value === 0 },
+    }));
+  };
+
+  const toggleMute = (songId: number) => {
+    const audioElement = audioRefs.current[songId];
+    if (audioElement) {
+      const isCurrentlyMuted = songStates[songId]?.isMuted ?? false;
+      audioElement.muted = !isCurrentlyMuted;
+      setSongStates((prev) => ({
+        ...prev,
+        [songId]: { ...prev[songId], isMuted: !isCurrentlyMuted },
+      }));
+    }
+  };
+
   const handleAudioRef = (el: HTMLAudioElement | null, songId: number) => {
     audioRefs.current[songId] = el;
+    if (el) {
+      const songState = songStates[songId];
+      el.volume = songState?.volume ?? 1; // Default volume is 1
+      el.muted = songState?.isMuted ?? false; // Default is not muted
+    }
   };
 
   return (
@@ -74,6 +106,31 @@ function AlbumListItem({ album }: { album: Album }) {
             >
               <track kind="captions" />
             </audio>
+            <div className="volume-controls">
+              <button
+                type="button"
+                className="mute-btn"
+                onClick={() => toggleMute(song.id)}
+              >
+                {songStates[song.id]?.isMuted ? "Unmute" : "Mute"}
+              </button>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value={
+                  songStates[song.id]?.isMuted
+                    ? 0
+                    : songStates[song.id]?.volume !== undefined
+                      ? songStates[song.id].volume
+                      : 1
+                }
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleVolumeChange(song.id, Number.parseFloat(e.target.value))
+                }
+              />
+            </div>
           </div>
         ))}
         {visibleSongs < album.songs.length ? (
