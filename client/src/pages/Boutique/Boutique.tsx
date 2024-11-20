@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Boutique.css";
-
+import { usePanier } from "../../contexts/ContextPanier";
 interface Goodie {
   id: number;
   nom: string;
@@ -11,7 +11,7 @@ interface Goodie {
 function Boutique() {
   // Utilisation de useState pour stocker les données
   const [goodies, setGoodies] = useState<Goodie[]>([]);
-
+  const { addPanier } = usePanier();
   // Utilisation de useEffect pour charger les données dès le rendu du composant
   useEffect(() => {
     // Effectuer une requête fetch pour récupérer les données
@@ -39,6 +39,9 @@ function Boutique() {
                 />
               )}
               <p>{goodie.prix} €</p>
+              <button type="button" onClick={() => addPanier(goodie)}>
+                Ajouter au panier
+              </button>
             </div>
           ))
         ) : (

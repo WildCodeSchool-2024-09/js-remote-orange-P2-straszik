@@ -8,7 +8,7 @@ import Albums from "./pages/Album/Album";
 import AlbumItem from "./pages/AlbumItem/AlbumItem";
 import Boutique from "./pages/Boutique/Boutique";
 import "@fontsource/zilla-slab";
-
+import ProviderPanier from "./contexts/ContextPanier";
 function App() {
   const location = useLocation();
 
@@ -18,14 +18,16 @@ function App() {
 
   return (
     <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Accueil />} />
-        <Route path="/album/:id" element={<AlbumItem />} />
-        <Route path="/albums" element={<Albums />} />
-        <Route path="/Boutique" element={<Boutique />} />
-      </Routes>
-      <Footer />
+      <ProviderPanier>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/album/:id" element={<AlbumItem />} />
+          <Route path="/albums" element={<Albums />} />
+          <Route path="/boutique" element={<Boutique />} />
+        </Routes>
+        <Footer />
+      </ProviderPanier>
     </div>
   );
 }

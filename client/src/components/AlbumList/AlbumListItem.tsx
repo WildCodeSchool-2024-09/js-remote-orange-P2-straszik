@@ -30,6 +30,7 @@ function AlbumListItem({ album }: { album: Album }) {
               {song.audioSrc ? (
                 <audio className="album-song-audio" controls>
                   <source src={song.audioSrc} type="audio/mp3" />
+                  <track kind="captions" />
                   Votre navigateur ne prend pas en charge l'élément audio.
                 </audio>
               ) : null}
