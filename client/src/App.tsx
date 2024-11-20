@@ -9,19 +9,12 @@ import AlbumItem from "./pages/AlbumItem/AlbumItem";
 import Boutique from "./pages/Boutique/Boutique";
 import "@fontsource/zilla-slab";
 import ProviderPanier from "./contexts/ContextPanier";
-import Panier from "./pages/panier/panier";
+import Panier from "./pages/Panier/panier";
 
 function App() {
   const location = useLocation();
 
   React.useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (footer) {
-      footer.style.position =
-        location.pathname === "/" || location.pathname.startsWith("/albums")
-          ? "fixed"
-          : "";
-    }
     document.body.style.overflow = location.pathname === "/" ? "clip" : "";
   }, [location.pathname]);
 

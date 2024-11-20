@@ -9,7 +9,7 @@ body {
   background-attachment: fixed;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: whitesmoke;
   min-height: 100vh;
 }
 .main {
@@ -22,7 +22,8 @@ h1 {
 .goodies-grid {
   color: whitesmoke;
   display: grid; /* Utilise le grid pour la mise en page */
-  grid-template-columns: repeat(4, 1fr); /* Espace entre les éléments */
+  grid-template-columns: repeat(4, 1fr); /* Crée 4 colonnes égales */
+  grid-gap: 20px; /* Espace entre les éléments */
   padding: 20px; /* Padding autour de la grille */
 }
 
@@ -30,32 +31,67 @@ h1 {
   border-radius: 8px;
   padding: 20px;
   text-align: center;
+  background-color: rgba(255, 0, 208, 0.182);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-  gap: 5em;
+  transition: transform 0.2s ease-in-out; /* Vous pouvez ajouter une couleur de fond pour les cartes */
+  display: flex; /* Utiliser flex pour bien centrer les éléments à l'intérieur de la carte */
+  flex-direction: column; /* Aligner les éléments verticalement */
+  justify-content: space-between; /* Espacer les éléments à l'intérieur de la carte */
+  align-items: center;
+}
+
+.goodies-conterImage {
+  position: relative;
+  width: 100%; /* La largeur est 100% de la carte */
+  padding-bottom: 140%; /* La hauteur sera égale à la largeur (rapport 1:1) */
+  overflow: hidden; /* Assurez-vous que l'image ne dépasse pas du conteneur */
 }
 
 .goodie-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 15px;
+  position: absolute; /* L'image doit être positionnée de manière absolue dans la div parente */
+  top: 0;
+  left: 0;
+  width: 100%; /* L'image occupe toute la largeur du parent */
+  height: 100%; /* L'image occupe toute la hauteur du parent */
+  object-fit: cover; /* Remplir sans déformation */
+  border-radius: 8px; /* Arrondir les coins de l'image */
+}
+
+/* Ajout d'un effet au survol pour la carte */
+.goodie-card:hover {
+  transform: scale(1.05); /* Agrandir légèrement la carte au survol */
+}
+
+.goodie-card button {
+  display: inline;
+  color: #ffffff;
+  background-color: rgb(168, 41, 241);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Zilla Slab", serif;
+}
+
+.goodie-card button:hover {
+  animation: shadowPulse infinite 3s ease-out forwards; /* Applique l'animation shadowPulse */
+  transform: scale(1.1); /* Agrandit légèrement le bouton au survol */
+}
+
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre initiale */
+  }
+  50% {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Ombre plus large et plus intense */
+  }
+  100% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombre restaurée après l'animation */
+  }
 }
 
 .navbar {
   position: absolute;
 }
-
-<<<<<<< HEAD
-.footer {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  width: 100%;
-}
-=======
-/* .footer {
-  position: fixed;
-} */
->>>>>>> 440d3facc5c207cd77d68ac1c6af3fee0a2d1ca6

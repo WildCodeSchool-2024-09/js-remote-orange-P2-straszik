@@ -1,20 +1,16 @@
 /* Footer style */
 .footer {
-<<<<<<< HEAD
-  position: relative;
-=======
->>>>>>> 440d3facc5c207cd77d68ac1c6af3fee0a2d1ca6
   bottom: 30px; /* Ajuste cette valeur pour le remonter */
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   color: white;
   padding: 15px 0;
   z-index: 10;
   gap: 15px;
   background-color: transparent; /* S'assurer qu'il soit transparent */
-  position: fixed; /* Garder le footer fixé */
+  position: fixed;
 }
 
 /* Reste des styles du footer */
@@ -68,11 +64,8 @@
 
 @media screen and (max-width: 768px) {
   .footer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    position: absolute;
-    bottom: 5px;
+    flex-direction: column; /* En colonne pour les tablettes et mobiles */
+    align-items: center; /* Centrer les éléments */
   }
 
   .footer-text {
@@ -109,4 +102,3 @@ body.home,
 body.album {
   background-color: transparent; /* S'assurer que le fond reste transparent */
 }
-

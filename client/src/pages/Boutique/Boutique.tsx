@@ -6,6 +6,7 @@ interface Goodie {
   nom: string;
   image_url: string;
   prix: number;
+  quantite: number;
 }
 
 function Boutique() {
@@ -16,8 +17,10 @@ function Boutique() {
   useEffect(() => {
     // Effectuer une requête fetch pour récupérer les données
     fetch("https://api-straszik.vercel.app/items")
-      .then((response) => response.json()) // Parse la réponse JSON
-      .then((data) => setGoodies(data)) // Mettre à jour l'état avec les données
+      .then((response) => response.json())
+      .then((data) =>
+        setGoodies(data.map((item: Goodie) => ({ ...item, quantite: 1 }))),
+      ) // Mettre à jour l'état avec les données
       .catch((error) =>
         console.error("Erreur de récupération des données:", error),
       );
@@ -32,13 +35,15 @@ function Boutique() {
             <div className="goodie-card" key={goodie.id}>
               <h2>{goodie.nom}</h2>
               {goodie.image_url && (
-                <img
-                  src={goodie.image_url}
-                  alt={goodie.nom}
-                  className="goodie-image"
-                />
+                <div className="goodies-conterImage">
+                  <img
+                    src={goodie.image_url}
+                    alt={goodie.nom}
+                    className="goodie-image"
+                  />
+                </div>
               )}
-              <p>{goodie.prix} €</p>
+              <p className="goodie-prix">{goodie.prix} €</p>
               <button type="button" onClick={() => addPanier(goodie)}>
                 Ajouter au panier
               </button>

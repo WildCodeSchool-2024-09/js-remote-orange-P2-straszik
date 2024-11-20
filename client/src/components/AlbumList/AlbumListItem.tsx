@@ -16,7 +16,7 @@ type Album = {
 };
 
 function AlbumListItem({ album }: { album: Album }) {
-  const [visibleSongs, setVisibleSongs] = useState(10);
+  const [visibleSongs, setVisibleSongs] = useState(9);
   const [isPlaying, setIsPlaying] = useState<number | null>(null);
   const [songStates, setSongStates] = useState<{
     [key: number]: { volume: number; isMuted: boolean };
@@ -26,12 +26,12 @@ function AlbumListItem({ album }: { album: Album }) {
 
   const showMoreSongs = () => {
     setVisibleSongs((prev) =>
-      prev + 10 > album.songs.length ? album.songs.length : prev + 10,
+      prev + 9 > album.songs.length ? album.songs.length : prev + 9,
     );
   };
 
   const showLessSongs = () => {
-    setVisibleSongs(10);
+    setVisibleSongs(9);
   };
 
   const handlePlay = (songId: number) => {
@@ -90,14 +90,24 @@ function AlbumListItem({ album }: { album: Album }) {
       <div className="album-song-list">
         {album.songs.slice(0, visibleSongs).map((song, index) => (
           <div className="album-song-item" key={song.id}>
-            <span className="album-song-number">{index + 1}</span>
-            <p className="album-song-title">{song.title}</p>
+            <div className="title-id">
+              <span className="album-song-number">{index + 1}</span>
+              <p className="album-song-title">{song.title}</p>
+            </div>
             <button
               type="button"
               className="album-play-btn"
               onClick={() => handlePlay(song.id)}
             >
-              {isPlaying === song.id ? "Pause" : "Play"}
+              <img
+                src={
+                  isPlaying === song.id
+                    ? "/assets/images/pause.svg"
+                    : "/assets/images/play.svg"
+                }
+                alt={isPlaying === song.id ? "Pause" : "Play"}
+                className="play-icon"
+              />
             </button>
             <audio
               ref={(el) => handleAudioRef(el, song.id)}
@@ -112,7 +122,15 @@ function AlbumListItem({ album }: { album: Album }) {
                 className="mute-btn"
                 onClick={() => toggleMute(song.id)}
               >
-                {songStates[song.id]?.isMuted ? "Unmute" : "Mute"}
+                <img
+                  src={
+                    songStates[song.id]?.isMuted
+                      ? "/assets/images/Mute.svg"
+                      : "/assets/images/Unmute.svg"
+                  }
+                  alt={songStates[song.id]?.isMuted ? "Unmute" : "Mute"}
+                  className="mute-icon"
+                />
               </button>
               <input
                 type="range"
@@ -139,7 +157,7 @@ function AlbumListItem({ album }: { album: Album }) {
             className="album-show-more"
             onClick={showMoreSongs}
           >
-            Afficher plus
+            ↓
           </button>
         ) : (
           <button
@@ -147,7 +165,7 @@ function AlbumListItem({ album }: { album: Album }) {
             className="album-show-less"
             onClick={showLessSongs}
           >
-            Afficher moins
+            ↑
           </button>
         )}
       </div>

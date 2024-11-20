@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Définir l'interface pour un élément du panier
 interface Item {
@@ -39,23 +39,27 @@ export default function ProviderPanier({
         const parsedPanier = JSON.parse(storedPanier);
         // Vérification que tous les éléments du panier sont valides
         const panierValide = parsedPanier.every(
-          (item: any) =>
-            item &&
-            item.id &&
-            item.nom &&
-            item.prix &&
-            item.quantite &&
-            item.image_url
+          (item: Item) =>
+            item?.id &&
+            item?.nom &&
+            item?.prix &&
+            item?.quantite &&
+            item?.image_url,
         );
         if (panierValide) {
           setPanier(parsedPanier);
         } else {
-          console.warn("Données de panier corrompues, réinitialisation du panier.");
+          console.warn(
+            "Données de panier corrompues, réinitialisation du panier.",
+          );
           localStorage.removeItem("panier");
           setPanier([]); // Réinitialiser le panier si les données sont invalides
         }
       } catch (error) {
-        console.error("Erreur de parsing du panier depuis le localStorage", error);
+        console.error(
+          "Erreur de parsing du panier depuis le localStorage",
+          error,
+        );
         localStorage.removeItem("panier");
         setPanier([]); // Réinitialiser en cas d'erreur de parsing
       }
@@ -68,32 +72,33 @@ export default function ProviderPanier({
     localStorage.setItem("panier", JSON.stringify(nouveauPanier)); // Sauvegarder dans localStorage
   };
 
-// Ajouter un article au panier
-const addPanier = (item: Item) => {
-  // S'assurer que l'article a une quantité valide, par défaut à 1
-  const itemToAdd = { ...item, quantite: item.quantite || 1 };
+  // Ajouter un article au panier
+  const addPanier = (item: Item) => {
+    // S'assurer que l'article a une quantité valide, par défaut à 1
+    const itemToAdd = { ...item, quantite: item.quantite || 1 };
 
-  setPanier((prevPanier) => {
-    const panierCopy = [...prevPanier];
+    setPanier((prevPanier) => {
+      const panierCopy = [...prevPanier];
 
-    // Vérifier si l'article existe déjà dans le panier
-    const existingItemIndex = panierCopy.findIndex((i) => i.id === itemToAdd.id);
+      // Vérifier si l'article existe déjà dans le panier
+      const existingItemIndex = panierCopy.findIndex(
+        (i) => i.id === itemToAdd.id,
+      );
 
-    if (existingItemIndex !== -1) {
-      // Si l'article existe déjà, on augmente la quantité
-      panierCopy[existingItemIndex].quantite += itemToAdd.quantite;
-    } else {
-      // Si l'article n'existe pas, on l'ajoute au panier
-      panierCopy.push(itemToAdd);
-    }
+      if (existingItemIndex !== -1) {
+        // Si l'article existe déjà, on augmente la quantité
+        panierCopy[existingItemIndex].quantite += itemToAdd.quantite;
+      } else {
+        // Si l'article n'existe pas, on l'ajoute au panier
+        panierCopy.push(itemToAdd);
+      }
 
-    // Sauvegarder la nouvelle version du panier dans localStorage
-    sauvegarderPanier(panierCopy);
+      // Sauvegarder la nouvelle version du panier dans localStorage
+      sauvegarderPanier(panierCopy);
 
-    return panierCopy;
-  });
-};
-
+      return panierCopy;
+    });
+  };
 
   // Mettre à jour la quantité d'un article
   const updateQuantite = (id: number, quantite: number) => {
@@ -102,7 +107,7 @@ const addPanier = (item: Item) => {
     } else {
       setPanier((prevPanier) => {
         const panierCopy = prevPanier.map((item) =>
-          item.id === id ? { ...item, quantite } : item
+          item.id === id ? { ...item, quantite } : item,
         );
 
         // Sauvegarder la nouvelle version du panier dans localStorage
@@ -126,7 +131,9 @@ const addPanier = (item: Item) => {
   };
 
   return (
-    <ContextPanier.Provider value={{ panier, addPanier, updateQuantite, supprimerItem }}>
+    <ContextPanier.Provider
+      value={{ panier, addPanier, updateQuantite, supprimerItem }}
+    >
       {children}
     </ContextPanier.Provider>
   );

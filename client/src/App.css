@@ -11,7 +11,15 @@ body {
   display: flex;
   flex-direction: column;
 }
-.main-container {
-  flex: 1; /* L'élément .main-container occupe tout l'espace restant */
-  position:fixed;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Assure que le conteneur prend toute la hauteur de l'écran */
+}
+.main-content {
+  flex: 1; /* Remplit tout l'espace restant avant le footer */
+}
+.goodie-prix {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

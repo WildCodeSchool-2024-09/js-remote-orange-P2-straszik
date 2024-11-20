@@ -39,10 +39,15 @@ function Navbar() {
             <Link to="/Albums">
               <strong>Albums</strong>
             </Link>
-          </li> 
+          </li>
           <li>
             <Link to="/panier">
-              <img src="\assets\images\shopping-basket_12220215.png" width="32" height="32" alt="panier" />
+              <img
+                src="\assets\images\shopping-basket_12220215.png"
+                width="32"
+                height="32"
+                alt="panier"
+              />
             </Link>
           </li>
         </ul>
