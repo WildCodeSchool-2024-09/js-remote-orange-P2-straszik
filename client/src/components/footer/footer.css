@@ -1,11 +1,11 @@
 /* Footer style */
 .footer {
-  position: fixed;
+  position: relative;
   bottom: 30px; /* Ajuste cette valeur pour le remonter */
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   color: white;
   padding: 15px 0;
   z-index: 10;
@@ -108,3 +108,4 @@
     display: block;
   }
 }
+

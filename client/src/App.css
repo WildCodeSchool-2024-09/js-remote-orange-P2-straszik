@@ -13,4 +13,5 @@ body {
 }
 .main-container {
   flex: 1; /* L'élément .main-container occupe tout l'espace restant */
+  position:fixed;
 }
