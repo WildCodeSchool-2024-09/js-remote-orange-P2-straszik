@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./AlbumListItem.css";
 
 type Album = {
@@ -17,14 +17,37 @@ type Song = {
 
 function AlbumListItem({ album }: { album: Album }) {
   const [visibleSongs, setVisibleSongs] = useState(10);
+  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
+    null,
+  );
 
   const showMoreSongs = () => {
-    setVisibleSongs((prev) => (prev + 10 > album.songs.length ? album.songs.length : prev + 10));
+    setVisibleSongs((prev) =>
+      prev + 10 > album.songs.length ? album.songs.length : prev + 10,
+    );
   };
 
   const showLessSongs = () => {
     setVisibleSongs(10);
   };
+
+  const playAudio = (audioSrc: string) => {
+    if (currentAudio) {
+      currentAudio.pause();
+    }
+
+    const newAudio = new Audio(audioSrc);
+    setCurrentAudio(newAudio);
+    newAudio.play();
+  };
+
+  useEffect(() => {
+    return () => {
+      if (currentAudio) {
+        currentAudio.pause();
+      }
+    };
+  }, [currentAudio]);
 
   return (
     <div className="album-list-item" key={album.id}>
@@ -34,27 +57,35 @@ function AlbumListItem({ album }: { album: Album }) {
         <p className="album-description">{album.description}</p>
       </div>
       <div className="album-song-list">
-        {album.songs.slice(0, visibleSongs).map((song) => (
+        {album.songs.slice(0, visibleSongs).map((song, index) => (
           <div className="album-song-item" key={song.id}>
-            <div className="album-song-info">
-              <p className="album-song-title">{song.title}</p>
-              {song.audioSrc ? (
-                <audio className="album-song-audio" controls>
-                  <source src={song.audioSrc} type="audio/mp3" />
-                  <track kind="captions" />
-                  Votre navigateur ne prend pas en charge l'élément audio.
-                </audio>
-              ) : null}
-            </div>
+            <span className="album-song-number">{index + 1}</span>
+            <p className="album-song-title">{song.title}</p>
+            {/* Bouton personnalisé pour jouer la chanson */}
+            <button
+              type="button"
+              className="album-play-button"
+              onClick={() => playAudio(song.audioSrc)}
+            >
+              Play
+            </button>
           </div>
         ))}
         <div className="album-song-controls">
           {visibleSongs < album.songs.length ? (
-            <button className="album-show-more" onClick={showMoreSongs}>
+            <button
+              type="button"
+              className="album-show-more"
+              onClick={showMoreSongs}
+            >
               Afficher plus
             </button>
           ) : (
-            <button className="album-show-less" onClick={showLessSongs}>
+            <button
+              type="button"
+              className="album-show-less"
+              onClick={showLessSongs}
+            >
               Afficher moins
             </button>
           )}

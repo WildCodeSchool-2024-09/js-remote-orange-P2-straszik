@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import "./AlbumListItem.css";
 
 type Album = {
@@ -24,7 +24,9 @@ function AlbumListItem({ album }: { album: Album }) {
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]); // Référence à tous les éléments audio
 
   const showMoreSongs = () => {
-    setVisibleSongs((prev) => (prev + 10 > album.songs.length ? album.songs.length : prev + 10));
+    setVisibleSongs((prev) =>
+      prev + 10 > album.songs.length ? album.songs.length : prev + 10,
+    );
   };
 
   const showLessSongs = () => {
@@ -60,6 +62,10 @@ function AlbumListItem({ album }: { album: Album }) {
     }
   };
 
+  const handleAudioRef = (el: HTMLAudioElement | null, songId: number) => {
+    audioRefs.current[songId] = el;
+  };
+
   return (
     <div className="album-list-item" key={album.id}>
       <div className="album-info">
@@ -77,12 +83,14 @@ function AlbumListItem({ album }: { album: Album }) {
 
               {/* Boutons Play et Mute, ainsi que la barre de progression */}
               <button
+                type="button"
                 className="album-play-btn"
                 onClick={() => handlePlay(song.id)}
               >
                 {isPlaying === song.id ? "Pause" : "Play"}
               </button>
               <button
+                type="button"
                 className="album-mute-btn"
                 onClick={() => handleMute(song.id)}
               >
@@ -90,7 +98,7 @@ function AlbumListItem({ album }: { album: Album }) {
               </button>
               <audio
                 className="album-song-audio"
-                ref={(el) => (audioRefs.current[song.id] = el)}
+                ref={(el) => handleAudioRef(el, song.id)}
                 controls
                 onTimeUpdate={() => handleTimeUpdate(song.id)}
               >
@@ -107,7 +115,8 @@ function AlbumListItem({ album }: { album: Album }) {
                 onChange={(e) => {
                   const audioElement = audioRefs.current[song.id];
                   if (audioElement) {
-                    audioElement.currentTime = (parseFloat(e.target.value) / 100) * duration;
+                    audioElement.currentTime =
+                      (Number.parseFloat(e.target.value) / 100) * duration;
                   }
                 }}
               />
@@ -118,11 +127,19 @@ function AlbumListItem({ album }: { album: Album }) {
         {/* Contrôles pour afficher plus ou moins de chansons */}
         <div className="album-song-controls">
           {visibleSongs < album.songs.length ? (
-            <button className="album-show-more" onClick={showMoreSongs}>
+            <button
+              type="button"
+              className="album-show-more"
+              onClick={showMoreSongs}
+            >
               Afficher plus
             </button>
           ) : (
-            <button className="album-show-less" onClick={showLessSongs}>
+            <button
+              type="button"
+              className="album-show-less"
+              onClick={showLessSongs}
+            >
               Afficher moins
             </button>
           )}

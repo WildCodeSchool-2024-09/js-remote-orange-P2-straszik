@@ -339,8 +339,8 @@ function AlbumItem() {
   }
 
   return (
-    <div className="backgroundalbum">
-      <AlbumList albums={[album]} />
+    <div className="background-album">
+      <AlbumList album={album} />
     </div>
   );
 }

@@ -15,8 +15,10 @@ function App() {
   React.useEffect(() => {
     const footer = document.querySelector("footer");
     if (footer) {
-      footer.style.position = location.pathname === "/" || location.pathname.startsWith("/albums") ? "fixed" : "";
-
+      footer.style.position =
+        location.pathname === "/" || location.pathname.startsWith("/albums")
+          ? "fixed"
+          : "";
     }
     document.body.style.overflow = location.pathname === "/" ? "clip" : "";
   }, [location.pathname]);
