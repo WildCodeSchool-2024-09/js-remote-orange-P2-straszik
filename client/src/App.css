@@ -1,9 +1,13 @@
-body {
+body,
+body.home,
+body.album,
+body.other {
   font-family: "Zilla Slab", serif;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
 }
+
 html,
 body {
   height: 100%;
@@ -11,15 +15,21 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Assure que le conteneur prend toute la hauteur de l'écran */
+  min-height: 100vh;
 }
+
 .main-content {
-  flex: 1; /* Remplit tout l'espace restant avant le footer */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
+
 .goodie-prix {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #333;
 }

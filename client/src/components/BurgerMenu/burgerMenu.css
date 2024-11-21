@@ -1,41 +1,13 @@
-/* Style de base pour la navbar */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  font-size: 200%;
-  color: whitesmoke;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
 }
 
-/* Logo centré */
 .logo {
   font-weight: bold;
   text-align: center;
 }
 
-/* Style des liens de navigation */
-.nav-links ul {
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  margin: 0 15px;
-}
-
-.navbar a {
-  color: whitesmoke;
-  text-decoration: none;
-}
-
-/* Styles spécifiques pour le menu burger */
 .burger-button {
   display: none;
   font-size: 30px;
@@ -45,10 +17,9 @@ li {
   cursor: pointer;
 }
 
-/* Styles en vue mobile */
 @media screen and (max-width: 912px) {
   .nav-links ul {
-    display: none; /* Cache les liens de navigation en version mobile */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -57,27 +28,18 @@ li {
     padding: 20px;
   }
 
-  /* Classe pour afficher le menu burger ouvert */
   .nav-links.open ul {
-    display: flex; /* Affiche le menu quand il est ouvert */
+    display: flex;
   }
 
   .burger-button {
-    display: block; /* Affiche le bouton burger en version mobile */
+    display: block;
     position: absolute;
     top: 20px;
     left: 20px;
   }
 
-  /* Centrer le logo uniquement en mobile */
-  .logo {
-    flex-grow: 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  /* Centrer les éléments de la navbar */
   .navbar {
-    justify-content: center; /* Centre le logo et le menu burger */
+    justify-content: center;
   }
 }

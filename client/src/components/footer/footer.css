@@ -1,16 +1,23 @@
-/* Footer style */
 .footer {
-  bottom: 30px; /* Ajuste cette valeur pour le remonter */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   padding: 15px 0;
-  z-index: 10;
   gap: 15px;
   background-color: transparent; /* S'assurer qu'il soit transparent */
+  position: relative; /* Par défaut, footer est en position relative */
+}
+
+/* Positionner le footer en fixed uniquement sur la page home et albums */
+body.home .footer,
+body.album .footer {
   position: fixed;
+  bottom: 30px; /* Ajuste cette valeur pour remonter ou descendre le footer */
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 /* Reste des styles du footer */
@@ -44,6 +51,7 @@
 .footer-text {
   font-family: Arial, sans-serif;
   font-size: 14px;
+  display: flex;
   flex-direction: row;
   color: #ccc;
   margin-left: 15px; /* Espacement entre les icônes et le texte */
@@ -100,5 +108,5 @@ body {
 /* Pour la page de base (accueil et album) */
 body.home,
 body.album {
-  background-color: transparent; /* S'assurer que le fond reste transparent */
+  background-color: transparent; /* Assurer que le fond reste transparent */
 }

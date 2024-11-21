@@ -12,7 +12,7 @@ type Video = {
 // Liste des vidéos prédéfinies
 const videos: Video[] = [
   { id: "BtyHYIpykN0", start: 0, zoom: 1.0 },
-  { id: "IOwom_Gp__Q", start: 15, zoom: 1.2 },
+  { id: "IOwom_Gp__Q", start: 15, zoom: 1.5 },
   { id: "YdjO4EpEzZw", start: 15, zoom: 1.5 },
   { id: "CEbJwZOkvDM", start: 20, zoom: 1.5 },
   { id: "u8bHjdljyLw", start: 25, zoom: 1.5 },
