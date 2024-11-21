@@ -1,19 +1,24 @@
-/* Footer style */
 .footer {
-  bottom: 30px; /* Ajuste cette valeur pour le remonter */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 15px 0;
-  z-index: 10;
   gap: 15px;
-  background-color: transparent; /* S'assurer qu'il soit transparent */
-  position: fixed;
+  background-color: transparent;
+  position: relative; /* Par défaut, footer est en position relative */
 }
 
-/* Reste des styles du footer */
+/* Le footer est en "fixed" uniquement sur la page "/" et "/albums" */
+body.home .footer,
+body.album .footer {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
 .social-icons {
   display: flex;
   justify-content: center;
@@ -40,32 +45,38 @@
   background-color: rgb(168, 41, 241);
 }
 
-/* Texte à côté des icônes */
 .footer-text {
   font-family: Arial, sans-serif;
   font-size: 14px;
+  display: flex;
   flex-direction: row;
   color: #ccc;
-  margin-left: 15px; /* Espacement entre les icônes et le texte */
+  margin-left: 15px;
+}
+.footer-text a {
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-text a:hover {
+  color: rgb(168, 41, 241);
 }
 
-/* Responsive Styling */
 @media screen and (max-width: 1024px) {
   .footer {
-    flex-direction: row; /* En ligne (horizontal) pour les laptops */
-    justify-content: space-between; /* Espacement entre le texte et les icônes */
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .footer-text {
     font-size: 14px;
-    display: inline-block; /* Assurer que le texte soit visible */
+    display: inline-block;
   }
 }
 
 @media screen and (max-width: 768px) {
   .footer {
     flex-direction: column; /* En colonne pour les tablettes et mobiles */
-    align-items: center; /* Centrer les éléments */
+    align-items: center;
   }
 
   .footer-text {
@@ -91,14 +102,12 @@
   }
 }
 
-/* Resetting background color for body to prevent unwanted background on footer */
 body {
-  background-color: transparent; /* Assurer que le fond est transparent */
-  margin-bottom: 0; /* Retirer toute marge en bas */
+  background-color: transparent;
+  margin-bottom: 0;
 }
 
-/* Pour la page de base (accueil et album) */
 body.home,
 body.album {
-  background-color: transparent; /* S'assurer que le fond reste transparent */
+  background-color: transparent;
 }

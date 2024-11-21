@@ -16,7 +16,7 @@ type Album = {
 };
 
 function AlbumListItem({ album }: { album: Album }) {
-  const [visibleSongs, setVisibleSongs] = useState(9);
+  const [visibleSongs, setVisibleSongs] = useState(10);
   const [isPlaying, setIsPlaying] = useState<number | null>(null);
   const [songStates, setSongStates] = useState<{
     [key: number]: { volume: number; isMuted: boolean };
@@ -26,12 +26,12 @@ function AlbumListItem({ album }: { album: Album }) {
 
   const showMoreSongs = () => {
     setVisibleSongs((prev) =>
-      prev + 9 > album.songs.length ? album.songs.length : prev + 9,
+      prev + 10 > album.songs.length ? album.songs.length : prev + 10,
     );
   };
 
   const showLessSongs = () => {
-    setVisibleSongs(9);
+    setVisibleSongs(10);
   };
 
   const handlePlay = (songId: number) => {
@@ -74,8 +74,8 @@ function AlbumListItem({ album }: { album: Album }) {
     audioRefs.current[songId] = el;
     if (el) {
       const songState = songStates[songId];
-      el.volume = songState?.volume ?? 1; // Default volume is 1
-      el.muted = songState?.isMuted ?? false; // Default is not muted
+      el.volume = songState?.volume ?? 1;
+      el.muted = songState?.isMuted ?? false;
     }
   };
 

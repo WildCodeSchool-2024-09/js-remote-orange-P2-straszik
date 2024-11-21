@@ -42,7 +42,17 @@ const Footer: React.FC = () => {
             <img src="/assets/images/icon-twitter.svg" alt="Twitter" />
           </a>
         </div>
-        <p className="footer-text">© 2024 Wild Code School</p>
+        <p className="footer-text">
+          © 2024{" "}
+          <a
+            href="https://www.wildcodeschool.com/fr-fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginLeft: "5px" }}
+          >
+            Wild Code School
+          </a>
+        </p>
       </footer>
     </div>
   );

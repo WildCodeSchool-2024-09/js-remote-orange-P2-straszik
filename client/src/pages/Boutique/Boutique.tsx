@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import "./Boutique.css";
+import type { FC } from "react";
 import { usePanier } from "../../contexts/ContextPanier";
+import "./Boutique.css";
+
 interface Goodie {
   id: number;
   nom: string;
@@ -9,52 +11,45 @@ interface Goodie {
   quantite: number;
 }
 
-function Boutique() {
-  // Utilisation de useState pour stocker les données
+const Boutique: FC = () => {
   const [goodies, setGoodies] = useState<Goodie[]>([]);
   const { addPanier } = usePanier();
-  // Utilisation de useEffect pour charger les données dès le rendu du composant
+
   useEffect(() => {
-    // Effectuer une requête fetch pour récupérer les données
     fetch("https://api-straszik.vercel.app/items")
-      .then((response) => response.json())
-      .then((data) =>
-        setGoodies(data.map((item: Goodie) => ({ ...item, quantite: 1 }))),
-      ) // Mettre à jour l'état avec les données
-      .catch((error) =>
-        console.error("Erreur de récupération des données:", error),
+      .then((res) => res.json())
+      .then((data) => setGoodies(data))
+      .catch((err) =>
+        console.error("Erreur lors du chargement des goodies :", err),
       );
-  }, []); // Le tableau vide signifie que cela ne se produira qu'une seule fois au chargement du composant
+  }, []);
+
+  const handleAddToPanier = (goodie: Goodie) => {
+    addPanier({ ...goodie, quantite: 1 });
+    alert(`${goodie.nom} a été ajouté à votre panier.`);
+  };
 
   return (
     <div className="main">
       <h1>Boutique</h1>
       <div className="goodies-grid">
-        {goodies.length > 0 ? (
-          goodies.map((goodie) => (
-            <div className="goodie-card" key={goodie.id}>
-              <h2>{goodie.nom}</h2>
-              {goodie.image_url && (
-                <div className="goodies-conterImage">
-                  <img
-                    src={goodie.image_url}
-                    alt={goodie.nom}
-                    className="goodie-image"
-                  />
-                </div>
-              )}
-              <p className="goodie-prix">{goodie.prix} €</p>
-              <button type="button" onClick={() => addPanier(goodie)}>
-                Ajouter au panier
-              </button>
-            </div>
-          ))
-        ) : (
-          <p>Aucun produit disponible.</p>
-        )}
+        {goodies.map((goodie) => (
+          <div key={goodie.id} className="goodie-card">
+            <h2>{goodie.nom}</h2>
+            <img
+              src={goodie.image_url}
+              alt={goodie.nom}
+              className="goodie-image"
+            />
+            <p>{goodie.prix.toFixed(2)} €</p>
+            <button type="button" onClick={() => handleAddToPanier(goodie)}>
+              Ajouter au panier
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default Boutique;

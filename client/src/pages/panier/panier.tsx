@@ -12,22 +12,22 @@ interface Item {
 
 function Panier() {
   const [items, setItems] = useState<Item[]>([]);
-  const { updateQuantite } = usePanier(); // Utilisation du contexte pour updateQuantite
+  usePanier(); // Utilisation du contexte
 
   // Charger les données depuis le localStorage au premier rendu
   useEffect(() => {
     const storedItems: Item[] = JSON.parse(
-      localStorage.getItem("panier") || "[]"
+      localStorage.getItem("panier") || "[]",
     );
     setItems(storedItems);
-    console.log("Produits chargés depuis le localStorage :", storedItems);
+    // Produits chargés depuis le localStorage : storedItems
   }, []);
 
   // Sauvegarder le panier dans l'état et le localStorage
   const sauvegarderPanier = (nouveauPanier: Item[]) => {
     setItems(nouveauPanier); // Met à jour l'état React
     localStorage.setItem("panier", JSON.stringify(nouveauPanier));
-    console.log("Panier sauvegardé dans le localStorage :", nouveauPanier); // Met à jour le localStorage
+    // Panier sauvegardé dans le localStorage
   };
 
   // Mettre à jour la quantité et enregistrer dans localStorage
@@ -45,8 +45,8 @@ function Panier() {
   const supprimerArticle = (id: number) => {
     const nouveauPanier = items.filter((item) => item.id !== id);
     sauvegarderPanier(nouveauPanier);
-    console.log("Panier après suppression :", JSON.parse(localStorage.getItem("panier") || "[]")); // Met à jour le panier dans localStorage
-    
+    // Panier mis à jour dans le localStorage après suppression
+
     // Rafraîchissement de la page après suppression
     window.location.reload();
   };

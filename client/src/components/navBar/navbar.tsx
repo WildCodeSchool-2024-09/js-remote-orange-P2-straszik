@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import ResponsivePanier from "../ResponsivePanier/ResponsivePanier";
 function Navbar() {
   return (
     <div className="navbar">
-      <BurgerMenu /* className="burger-menu" */ />
+      <BurgerMenu />
+      <ResponsivePanier />
+
       <nav className="nav1">
         <ul>
           <li>
