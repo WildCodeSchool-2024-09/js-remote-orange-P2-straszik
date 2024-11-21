@@ -44,7 +44,7 @@ li {
   text-decoration: none;
 }
 
-/* Styles spécifiques pour le menu burger */
+/* Bouton burger */
 .burger-button {
   display: none;
   font-size: 30px;
@@ -54,12 +54,12 @@ li {
   cursor: pointer;
 }
 
-/* Styles en vue mobile */
+/* Vue mobile */
 @media screen and (max-width: 772px) {
   .nav1,
   .nav2,
   ul {
-    display: none; /* Cache les liens de navigation en version mobile */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -68,26 +68,23 @@ li {
     padding: 20px;
   }
 
-  /* Classe pour afficher le menu burger ouvert */
   .nav-links.open {
-    display: flex; /* Affiche le menu quand il est ouvert */
+    display: flex;
   }
 
   .burger-button {
-    display: block; /* Affiche le bouton burger en version mobile */
+    display: block;
     position: absolute;
     top: 20px;
     left: 20px;
   }
 
-  /* Centrer le logo uniquement en mobile */
   .logo {
-    flex-grow: 0; /* Annule l'effet de flex-grow */
+    flex-grow: 0;
     text-align: center;
-    width: 100%; /* Permet de centrer le logo */
+    width: 100%;
   }
 
-  /* Centrer les éléments de la navbar */
   .navbar {
     justify-content: center;
   }
@@ -97,7 +94,7 @@ li {
   display: none;
 }
 
-/* Sur les petits écrans (par exemple, moins de 700px), masque la Navbar et affiche le BurgerMenu */
+/* Vue petits écrans */
 @media (max-width: 700px) {
   .navbar {
     display: none;
