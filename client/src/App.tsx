@@ -9,7 +9,7 @@ import AlbumItem from "./pages/AlbumItem/AlbumItem";
 import Boutique from "./pages/Boutique/Boutique";
 import "@fontsource/zilla-slab";
 import ProviderPanier from "./contexts/ContextPanier";
-import Panier from "./pages/Panier/panier";
+import Panier from "./pages/panier/panier";
 
 function App() {
   const location = useLocation();
@@ -27,7 +27,7 @@ function App() {
           <Route path="/album/:id" element={<AlbumItem />} />
           <Route path="/albums" element={<Albums />} />
           <Route path="/boutique" element={<Boutique />} />
-          <Route path="/panier" element={<Panier />} />
+          <Route path="/panier" element={<Panier />} /> 
         </Routes>
         <Footer />
       </ProviderPanier>

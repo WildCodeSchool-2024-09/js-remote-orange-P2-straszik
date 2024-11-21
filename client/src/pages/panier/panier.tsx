@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./panier.css";
+import { usePanier } from "../../contexts/ContextPanier"; // Assurez-vous que usePanier est correctement importé
 
 interface Item {
   id: number;
@@ -11,51 +12,43 @@ interface Item {
 
 function Panier() {
   const [items, setItems] = useState<Item[]>([]);
+  const { updateQuantite } = usePanier(); // Utilisation du contexte pour updateQuantite
 
   // Charger les données depuis le localStorage au premier rendu
   useEffect(() => {
     const storedItems: Item[] = JSON.parse(
-      localStorage.getItem("panier") || "[]",
+      localStorage.getItem("panier") || "[]"
     );
     setItems(storedItems);
+    console.log("Produits chargés depuis le localStorage :", storedItems);
   }, []);
 
   // Sauvegarder le panier dans l'état et le localStorage
   const sauvegarderPanier = (nouveauPanier: Item[]) => {
     setItems(nouveauPanier); // Met à jour l'état React
-    localStorage.setItem("panier", JSON.stringify(nouveauPanier)); // Met à jour le localStorage
+    localStorage.setItem("panier", JSON.stringify(nouveauPanier));
+    console.log("Panier sauvegardé dans le localStorage :", nouveauPanier); // Met à jour le localStorage
   };
 
-  // Mettre à jour la quantité
+  // Mettre à jour la quantité et enregistrer dans localStorage
   const mettreAJourQuantite = (index: number, nouvelleQuantite: number) => {
-    const nouveauPanier = [...items];
     if (nouvelleQuantite <= 0) {
-      nouveauPanier.splice(index, 1);
+      supprimerArticle(items[index].id); // Si la quantité est inférieure ou égale à 0, supprimer l'article
     } else {
+      const nouveauPanier = [...items];
       nouveauPanier[index].quantite = nouvelleQuantite;
+      sauvegarderPanier(nouveauPanier); // Sauvegarde dans le localStorage et l'état
     }
-    sauvegarderPanier(nouveauPanier);
   };
 
-  // Supprimer un article
+  // Supprimer un article et rafraîchir la page
   const supprimerArticle = (id: number) => {
     const nouveauPanier = items.filter((item) => item.id !== id);
     sauvegarderPanier(nouveauPanier);
-  };
-
-  // Ajouter un nouvel article
-  const ajouterAuPanier = (nouvelArticle: Item) => {
-    const panierActuel = [...items];
-    const indexExistant = panierActuel.findIndex(
-      (item) => item.id === nouvelArticle.id,
-    );
-
-    if (indexExistant !== -1) {
-      panierActuel[indexExistant].quantite += nouvelArticle.quantite;
-    } else {
-      panierActuel.push(nouvelArticle);
-    }
-    sauvegarderPanier(panierActuel);
+    console.log("Panier après suppression :", JSON.parse(localStorage.getItem("panier") || "[]")); // Met à jour le panier dans localStorage
+    
+    // Rafraîchissement de la page après suppression
+    window.location.reload();
   };
 
   // Calculer le total
@@ -119,20 +112,6 @@ function Panier() {
           </div>
         </div>
       )}
-      <button
-        type="button"
-        onClick={() =>
-          ajouterAuPanier({
-            id: 1,
-            nom: "Produit Exemple",
-            prix: 10,
-            quantite: 1,
-            image_url: "https://via.placeholder.com/150",
-          })
-        }
-      >
-        Ajouter un produit exemple
-      </button>
     </div>
   );
 }

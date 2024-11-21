@@ -101,7 +101,7 @@ export default function ProviderPanier({
   };
 
   // Mettre à jour la quantité d'un article
-  const updateQuantite = (id: number, quantite: number) => {
+   const updateQuantite = (id: number, quantite: number) => {
     if (quantite <= 0) {
       supprimerItem(id); // Si la quantité devient 0 ou moins, on supprime l'article
     } else {
