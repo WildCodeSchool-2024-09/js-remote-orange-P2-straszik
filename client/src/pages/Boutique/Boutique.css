@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
 }
 .main {
+  padding-top: 100px;
   margin: 13em;
 }
 
@@ -22,10 +23,10 @@ h1 {
 }
 .goodies-grid {
   color: whitesmoke;
-  display: grid; /* Utilise le grid pour la mise en page */
-  grid-template-columns: repeat(4, 1fr); /* Crée 4 colonnes égales */
-  grid-gap: 20px; /* Espace entre les éléments */
-  padding: 20px; /* Padding autour de la grille */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
 }
 
 .goodie-card {
@@ -34,33 +35,32 @@ h1 {
   text-align: center;
   background-color: rgba(255, 0, 208, 0.182);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out; /* Vous pouvez ajouter une couleur de fond pour les cartes */
-  display: flex; /* Utiliser flex pour bien centrer les éléments à l'intérieur de la carte */
-  flex-direction: column; /* Aligner les éléments verticalement */
-  justify-content: space-between; /* Espacer les éléments à l'intérieur de la carte */
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
 .goodies-conterImage {
   position: relative;
-  width: 100%; /* La largeur est 100% de la carte */
-  padding-bottom: 140%; /* La hauteur sera égale à la largeur (rapport 1:1) */
-  overflow: hidden; /* Assurez-vous que l'image ne dépasse pas du conteneur */
+  width: 100%;
+  padding-bottom: 140%;
+  overflow: hidden;
 }
 
 .goodie-image {
-  position: absolute; /* L'image doit être positionnée de manière absolue dans la div parente */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* L'image occupe toute la largeur du parent */
-  height: 100%; /* L'image occupe toute la hauteur du parent */
-  object-fit: cover; /* Remplir sans déformation */
-  border-radius: 8px; /* Arrondir les coins de l'image */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-/* Ajout d'un effet au survol pour la carte */
 .goodie-card:hover {
-  transform: scale(1.05); /* Agrandir légèrement la carte au survol */
+  transform: scale(1.05);
 }
 
 .goodie-card button {
@@ -77,22 +77,96 @@ h1 {
 }
 
 .goodie-card button:hover {
-  animation: shadowPulse infinite 3s ease-out forwards; /* Applique l'animation shadowPulse */
-  transform: scale(1.1); /* Agrandit légèrement le bouton au survol */
+  animation: shadowPulse infinite 3s ease-out forwards;
+  transform: scale(1.1);
 }
 
 @keyframes shadowPulse {
   0% {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre initiale */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   50% {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Ombre plus large et plus intense */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
   }
   100% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombre restaurée après l'animation */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   }
 }
 
 .navbar {
   position: absolute;
+}
+@media screen and (max-width: 1200px) {
+  .main {
+    margin: 5em 2em;
+    padding-top: 200px;
+  }
+  .goodies-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .main {
+    margin: 4em 1em;
+  }
+  .goodies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+  }
+  .goodie-card {
+    padding: 15px;
+  }
+  .goodie-card button {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+  }
+  .goodies-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+  }
+  .goodie-card {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .main {
+    margin: 3em 0.5em;
+  }
+  .goodie-card {
+    width: 70%;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .goodie-card button {
+    font-size: 0.9rem;
+    padding: 10px 5px;
+  }
+  .goodies-grid {
+    grid-gap: 8px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 0.8rem;
+  }
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+  }
+  .goodie-card button {
+    width: 80%;
+  }
 }
