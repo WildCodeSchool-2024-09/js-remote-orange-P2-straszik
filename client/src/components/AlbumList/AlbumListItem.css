@@ -194,7 +194,7 @@ input[type="range"]::-moz-range-thumb {
   .album-img {
     justify-content: center;
     height: auto;
-    margin: 0 auto; 
+    margin: 0 auto;
     align-self: center;
   }
 
