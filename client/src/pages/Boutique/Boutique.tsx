@@ -19,7 +19,7 @@ const Boutique: FC = () => {
   useEffect(() => {
     fetch("https://api-straszik.vercel.app/items")
       .then((res) => res.json())
-      .then((data) => setGoodies(data))
+      .then((data: Goodie[]) => setGoodies(data))
       .catch((err) =>
         console.error("Erreur lors du chargement des goodies :", err),
       );
