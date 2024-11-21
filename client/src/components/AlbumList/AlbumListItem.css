@@ -43,9 +43,8 @@
   margin: 0;
   font-size: 32px;
 }
-
 .album-img {
-  width: 10;
+  width: 350px;
   height: auto;
   border-radius: 20px;
   display: flex;
@@ -188,12 +187,15 @@ input[type="range"]::-moz-range-thumb {
     flex-direction: column;
     padding-top: 200px;
     width: 80%;
+    align-items: center;
+    margin-right: 38px;
   }
 
   .album-img {
     justify-content: center;
-    width: 80%;
     height: auto;
+    margin: 0 auto; 
+    align-self: center;
   }
 
   .album-description {
