@@ -62,6 +62,10 @@ h1 {
 .goodie-card:hover {
   transform: scale(1.05);
 }
+.goodie-prix {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
 .goodie-card button {
   display: inline;

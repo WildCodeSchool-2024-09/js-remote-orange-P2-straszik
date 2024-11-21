@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./BurgerMenu.css"; // Assurez-vous que le CSS est bien appliqué
+import "./BurgerMenu.css";
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

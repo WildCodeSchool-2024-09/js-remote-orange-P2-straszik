@@ -74,8 +74,8 @@ function AlbumListItem({ album }: { album: Album }) {
     audioRefs.current[songId] = el;
     if (el) {
       const songState = songStates[songId];
-      el.volume = songState?.volume ?? 1; // Default volume is 1
-      el.muted = songState?.isMuted ?? false; // Default is not muted
+      el.volume = songState?.volume ?? 1;
+      el.muted = songState?.isMuted ?? false;
     }
   };
 
