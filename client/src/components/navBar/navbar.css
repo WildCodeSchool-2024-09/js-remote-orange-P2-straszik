@@ -20,9 +20,11 @@
 }
 
 /* Logo centré */
-.logo {
-  font-weight: bold;
-  text-align: center;
+@media screen and (min-width: 773px) and (max-width: 1440px) {
+  .logo {
+    font-weight: bold;
+    text-align: center;
+  }
 }
 
 /* Style des liens de navigation */
@@ -41,9 +43,14 @@ li {
 
 .navbar a {
   color: whitesmoke;
+  gap: 0.5em;
   text-decoration: none;
 }
-
+.navbar a:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  color: rgb(172, 59, 238);
+}
 /* Bouton burger */
 .burger-button {
   display: none;
