@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./BurgerMenu.css"; // Assurez-vous que le CSS est bien appliqué
+import "./BurgerMenu.css";
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const BurgerMenu = () => {
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="/boutique">
               <strong>Boutique</strong>
             </Link>
           </li>

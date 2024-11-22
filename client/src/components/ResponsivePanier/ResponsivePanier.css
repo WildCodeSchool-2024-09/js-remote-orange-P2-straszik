@@ -1,0 +1,14 @@
+.responsive-panier {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .responsive-panier {
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 14px;
+    z-index: 1000;
+    padding: 10px;
+  }
+}

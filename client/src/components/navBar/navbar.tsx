@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import ResponsivePanier from "../ResponsivePanier/ResponsivePanier";
 function Navbar() {
   return (
     <div className="navbar">
-      <BurgerMenu /* className="burger-menu" */ />
+      <BurgerMenu />
+      <ResponsivePanier />
+
       <nav className="nav1">
         <ul>
           <li>
@@ -15,7 +18,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="/Boutique">
               <p>
                 <strong>Boutique</strong>
               </p>
@@ -38,6 +41,16 @@ function Navbar() {
           <li>
             <Link to="/Albums">
               <strong>Albums</strong>
+            </Link>
+          </li>
+          <li>
+            <Link to="/panier">
+              <img
+                src="\assets\images\shopping-basket_12220215.png"
+                width="32"
+                height="32"
+                alt="panier"
+              />
             </Link>
           </li>
         </ul>

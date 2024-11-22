@@ -1,18 +1,29 @@
 import AlbumListItem from "./AlbumListItem";
+import "./AlbumList.css";
+
+type Song = {
+  id: number;
+  title: string;
+  audioSrc: string;
+};
 
 type Album = {
   id: number;
   title: string;
+  imgSrc: string;
   description: string;
-  song: string[];
+  songs: Song[];
 };
 
-function AlbumList({ albums }: { albums: Album[] }) {
+function AlbumList({ albums }: { albums: Album[] | undefined }) {
+  if (!albums || albums.length === 0) {
+    return <div>Aucun album disponible.</div>;
+  }
+
   return (
-    <div>
-      <h1>Album List</h1>
-      {albums?.map((album: Album) => (
-        <AlbumListItem album={album} key={album.id} />
+    <div className="album-list">
+      {albums.map((album) => (
+        <AlbumListItem key={album.id} album={album} />
       ))}
     </div>
   );

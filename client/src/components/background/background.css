@@ -1,3 +1,4 @@
+/* Vidéo de fond */
 .background-video {
   position: absolute;
   top: 50%;
@@ -11,10 +12,11 @@
   z-index: -1;
 }
 
+/* Bouton mute */
 .mute-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  left: 100px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
@@ -24,18 +26,23 @@
   cursor: pointer;
   z-index: 11;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin: 10px; /* Ajout d'un léger margin */
+  width: 60px; /* Taille uniforme */
+  height: 60px; /* Taille uniforme */
 }
 
 .mute-button:hover {
   background: rgba(0, 0, 0, 0.8);
   transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Bouton pour changer la vidéo */
 .change-video-button {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 30px;
+  right: 100px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
@@ -43,19 +50,37 @@
   font-size: 18px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 10;
+  z-index: 11;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin: 10px; /* Ajout d'un léger margin */
+  width: 60px; /* Taille uniforme */
+  height: 60px; /* Taille uniforme */
 }
 
 .change-video-button:hover {
   background: rgba(0, 0, 0, 0.8);
   transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Responsivité pour la vidéo */
 @media screen and (max-width: 1024px) {
   .background-video {
     height: auto;
     width: 177.77vh;
+  }
+}
+
+/* Responsive pour les boutons */
+@media screen and (max-width: 768px) {
+  .mute-button {
+    bottom: 40px;
+    left: 20px;
+  }
+
+  .change-video-button {
+    bottom: 40px;
+    right: 20px;
   }
 }

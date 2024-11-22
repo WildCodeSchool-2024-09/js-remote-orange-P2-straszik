@@ -1,4 +1,3 @@
-/* General for the body and html */
 body,
 html {
   margin: 0;
@@ -13,12 +12,10 @@ html {
   justify-content: center;
   align-items: center;
   text-align: center;
-
   background-image: url("./PnlWallpaper.jpg");
   background-size: cover;
   background-position: 50% 10%;
   background-repeat: no-repeat;
-
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -29,19 +26,15 @@ html {
   font-size: 24px;
 }
 
-/* Carousel container adjustments */
 .carousel {
   position: relative;
   width: 100%;
   max-width: 50em;
   margin: auto;
   overflow: hidden;
-  border-radius: 5em;
-  border: 5px solid whitesmoke;
   background-color: transparent;
 }
 
-/* Carousel track styling */
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -49,9 +42,8 @@ html {
   position: relative;
 }
 
-/* General slide styling */
 .carousel-slide {
-  min-width: 100%;
+  flex: 0 0 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,75 +51,75 @@ html {
   opacity: 0;
   transform: scale(0.8);
   transition: transform 0.5s ease, opacity 0.5s ease;
+  position: absolute;
 }
 
 .carousel-slide img {
-  width: 100%;
+  width: 87%;
   height: auto;
   max-width: 300px;
   border-radius: 4em;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Active slide styling */
 .carousel-slide.active {
   opacity: 1;
   transform: scale(1);
   z-index: 2;
+  position: relative;
 }
 
-/* Styling for previous and next slides */
-.carousel-slide.previous,
+.carousel-slide.previous {
+  opacity: 0.6;
+  transform: scale(0.7);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) scale(0.7);
+  z-index: 1;
+}
+
 .carousel-slide.next {
   opacity: 0.6;
   transform: scale(0.7);
   position: absolute;
   top: 50%;
+  right: 0;
   transform: translateY(-50%) scale(0.7);
   z-index: 1;
 }
 
-.carousel-slide.previous {
-  left: -35%; /* previous slide positioned to the left */
-}
-
-.carousel-slide.next {
-  right: -35%; /* next slide positioned to the right */
-}
-
-/* Carousel buttons */
 .carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   border: none;
-  color: #ffffff;
-  font-size: 24px;
-  padding: 10px;
+  color: rgba(78, 87, 136, 1);
+  font-size: 3em;
   cursor: pointer;
   z-index: 10;
+  background-color: transparent;
 }
 
 .carousel-button.prev {
   left: 10px;
-  font-size: 3em;
-  background-color: transparent;
 }
 
 .carousel-button.next {
   right: 10px;
-  font-size: 3em;
-  background-color: transparent;
 }
 
 .carousel-button:focus {
   outline: none;
 }
 
-/* Responsive media query */
 @media screen and (max-width: 762px) {
   .albums-container {
     background-image: url("https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg");
+  }
+  .carousel-slide.previous,
+  .carousel-slide.next {
+    display: none;
   }
 }
