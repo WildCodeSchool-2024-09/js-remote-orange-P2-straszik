@@ -1,10 +1,10 @@
 /* Conteneur principal */
 .panier-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
+  max-width: 70%;
+  margin: 10em auto;
+  padding: 1em;
   background-color: #f9f9f9;
-  border-radius: 10px;
+  border-radius: 2em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 12em;
 }
@@ -13,7 +13,7 @@
 .panier-container h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 1em;
 }
 
 /* Message si le panier est vide */
@@ -25,25 +25,29 @@
 /* Conteneur des articles */
 .panier-items {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
 }
 
 /* Article individuel */
 .panier-item {
+  height: 10em;
+  width: 20em;
   display: flex;
-  gap: 15px;
-  padding: 15px;
+  gap: 1em;
+  padding: 1em;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 2em;
   align-items: center;
+  justify-content: center;
 }
 
 /* Image produit */
 .image-produit {
-  width: 100px;
-  height: 100px;
+  width: 7em;
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -56,7 +60,7 @@
 }
 
 .panier-item p {
-  margin: 5px 0;
+  margin: 1em 0;
   color: #555;
 }
 
@@ -64,13 +68,13 @@
 .quantite-control {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 1em;
+  margin-top: 1em;
 }
 
 .quantite-control button {
-  width: 30px;
-  height: 30px;
+  width: 2em;
+  height: 2em;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -88,14 +92,14 @@
 }
 
 .quantite-control span {
-  font-size: 16px;
+  font-size: 1em;
   color: #333;
 }
 
 /* Bouton supprimer */
 .supprimer-btn {
-  margin-top: 10px;
-  padding: 5px 10px;
+  margin-top: 2em;
+  padding: 1em 3em;
   background-color: #ff4d4f;
   color: #fff;
   border: none;
@@ -106,6 +110,12 @@
 
 .supprimer-btn:hover {
   background-color: #d9363e;
+}
+
+.valider-btn {
+  text-align: center;
+  font-size: 2em;
+  margin-left: 1em;
 }
 
 /* Section total */
@@ -134,30 +144,4 @@
 
 .vider-panier-btn:hover {
   background-color: #d9363e;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .panier-container {
-    margin-top: 18em;
-  }
-  .panier-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .image-produit {
-    width: 80px;
-    height: 80px;
-  }
-
-  .quantite-control {
-    gap: 5px;
-  }
-
-  .quantite-control button {
-    width: 25px;
-    height: 25px;
-    font-size: 14px;
-  }
 }
