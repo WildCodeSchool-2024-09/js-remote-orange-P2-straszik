@@ -22,8 +22,8 @@ function Panier() {
                   alt={item.nom}
                 />
                 <div>
-                  <h3>{item.nom}</h3>
-                  <p>Prix : {item.prix} €</p>
+                  <h3 className="nom-produit">{item.nom}</h3>
+                  <p className="prix-produit">Prix : {item.prix} €</p>
                   <div className="quantite-control">
                     <button
                       type="button"

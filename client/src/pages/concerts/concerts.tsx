@@ -93,8 +93,14 @@ function Concerts() {
       nom: `${concert.venue}, ${concert.city}`,
       prix: concert.price,
       quantite: 1,
-      image_url: "", // Si vous souhaitez ajouter une image, insérez l'URL ici
+      image_url:
+        "https://startitkbs.org/wp-content/uploads/2021/03/pnl-concert.jpg",
     });
+
+    // Alerte après ajout
+    alert(
+      `Votre ticket pour le concert à ${concert.venue}, ${concert.city} le ${concert.date} a été ajouté au panier pour ${concert.price} € ! 🎉`,
+    );
   };
 
   // Fonction pour afficher plus ou moins de concerts
