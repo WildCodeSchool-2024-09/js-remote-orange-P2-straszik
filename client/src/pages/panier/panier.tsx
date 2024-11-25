@@ -12,7 +12,7 @@ function Panier() {
       {panier.length === 0 ? (
         <p>Votre panier est vide.</p>
       ) : (
-        <div>
+        <div className="grid-container">
           <div className="panier-items">
             {panier.map((item) => (
               <div key={item.id} className="panier-item">
@@ -53,6 +53,9 @@ function Panier() {
           <div className="panier-total">
             <h2>Total : {calculerTotal().toFixed(2)} €</h2>
           </div>
+          <button type="button" className="valider-btn">
+            Valider
+          </button>
         </div>
       )}
     </div>
