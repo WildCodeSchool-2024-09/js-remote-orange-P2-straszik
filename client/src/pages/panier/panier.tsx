@@ -1,68 +1,20 @@
-import { useEffect, useState } from "react";
 import "./panier.css";
-import { usePanier } from "../../contexts/ContextPanier"; // Assurez-vous que usePanier est correctement importé
-
-interface Item {
-  id: number;
-  nom: string;
-  prix: number;
-  quantite: number;
-  image_url: string;
-}
+import { usePanier } from "../../contexts/ContextPanier";
 
 function Panier() {
-  const [items, setItems] = useState<Item[]>([]);
-  usePanier(); // Utilisation du contexte
-
-  // Charger les données depuis le localStorage au premier rendu
-  useEffect(() => {
-    const storedItems: Item[] = JSON.parse(
-      localStorage.getItem("panier") ?? "[]",
-    );
-    setItems(storedItems);
-    // Produits chargés depuis le localStorage : storedItems
-  }, []);
-
-  // Sauvegarder le panier dans l'état et le localStorage
-  const sauvegarderPanier = (nouveauPanier: Item[]) => {
-    setItems(nouveauPanier); // Met à jour l'état React
-    localStorage.setItem("panier", JSON.stringify(nouveauPanier)); // Panier sauvegardé dans le localStorage
-  };
-
-  // Mettre à jour la quantité et enregistrer dans localStorage
-  const mettreAJourQuantite = (index: number, nouvelleQuantite: number) => {
-    if (nouvelleQuantite <= 0) {
-      supprimerArticle(items[index].id); // Si la quantité est inférieure ou égale à 0, supprimer l'article
-    } else {
-      const nouveauPanier = [...items];
-      nouveauPanier[index].quantite = nouvelleQuantite;
-      sauvegarderPanier(nouveauPanier); // Sauvegarde dans le localStorage et l'état
-    }
-  };
-
-  // Supprimer un article sans rafraîchir la page
-  const supprimerArticle = (id: number) => {
-    const nouveauPanier = items.filter((item) => item.id !== id);
-    sauvegarderPanier(nouveauPanier); // Met à jour le panier dans l'état et le localStorage
-  };
-
-  // Calculer le total
-  const calculerTotal = () => {
-    return items
-      .reduce((total, item) => total + item.prix * item.quantite, 0)
-      .toFixed(2);
-  };
+  // Récupération du contexte du panier
+  const { panier, updateQuantite, supprimerItem, calculerTotal } = usePanier();
 
   return (
     <div className="panier-container">
       <h1>Mon Panier</h1>
 
-      {items.length === 0 ? (
+      {panier.length === 0 ? (
         <p>Votre panier est vide.</p>
       ) : (
         <div>
           <div className="panier-items">
-            {items.map((item, index) => (
+            {panier.map((item) => (
               <div key={item.id} className="panier-item">
                 <img
                   className="image-produit"
@@ -75,18 +27,14 @@ function Panier() {
                   <div className="quantite-control">
                     <button
                       type="button"
-                      onClick={() =>
-                        mettreAJourQuantite(index, item.quantite - 1)
-                      }
+                      onClick={() => updateQuantite(item.id, item.quantite - 1)}
                     >
                       -
                     </button>
                     <span>Quantité : {item.quantite}</span>
                     <button
                       type="button"
-                      onClick={() =>
-                        mettreAJourQuantite(index, item.quantite + 1)
-                      }
+                      onClick={() => updateQuantite(item.id, item.quantite + 1)}
                     >
                       +
                     </button>
@@ -94,7 +42,7 @@ function Panier() {
                   <button
                     type="button"
                     className="supprimer-btn"
-                    onClick={() => supprimerArticle(item.id)}
+                    onClick={() => supprimerItem(item.id)}
                   >
                     Supprimer
                   </button>
@@ -103,7 +51,7 @@ function Panier() {
             ))}
           </div>
           <div className="panier-total">
-            <h2>Total : {calculerTotal()} €</h2>
+            <h2>Total : {calculerTotal().toFixed(2)} €</h2>
           </div>
         </div>
       )}
