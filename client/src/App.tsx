@@ -6,7 +6,7 @@ import Accueil from "./pages/Accueil/Accueil";
 import Albums from "./pages/Album/Album";
 import AlbumItem from "./pages/AlbumItem/AlbumItem";
 import Boutique from "./pages/Boutique/Boutique";
-import Concerts from "./pages/Concerts/Concerts";
+import Concerts from "./pages/Concerts/concerts";
 import Panier from "./pages/panier/panier";
 import "@fontsource/zilla-slab";
 import ProviderPanier from "./contexts/ContextPanier";

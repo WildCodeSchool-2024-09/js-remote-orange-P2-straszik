@@ -13,74 +13,98 @@ type Concerts = {
 const concertsArray: Concerts[] = [
   {
     id: 21,
-    date: "2024-12-01",
+    date: "Dim, 1 Déc 2024",
     venue: "Stade de France",
     city: "Paris",
     price: 50,
   },
-  { id: 22, date: "2024-12-03", venue: "Bercy", city: "Paris", price: 45 },
+  {
+    id: 22,
+    date: "Mar, 3 Déc 2024",
+    venue: "Bercy",
+    city: "Paris",
+    price: 45,
+  },
   {
     id: 23,
-    date: "2024-12-05",
+    date: "Jeu, 5 Déc 2024",
     venue: "Le Zenith",
     city: "Toulouse",
     price: 40,
   },
   {
     id: 24,
-    date: "2024-12-07",
+    date: "Sam, 7 Déc 2024",
     venue: "Accor Arena",
     city: "Paris",
     price: 55,
   },
   {
     id: 25,
-    date: "2024-12-09",
+    date: "Lun, 9 Déc 2024",
     venue: "Parc des Princes",
     city: "Paris",
     price: 60,
   },
   {
     id: 26,
-    date: "2024-12-11",
+    date: "Mer, 11 Déc 2024",
     venue: "Stade Pierre-Mauroy",
     city: "Lille",
     price: 35,
   },
   {
     id: 27,
-    date: "2024-12-13",
+    date: "Ven, 13 Déc 2024",
     venue: "Le Dôme",
     city: "Marseille",
     price: 50,
   },
-  { id: 28, date: "2024-12-15", venue: "Le Trianon", city: "Paris", price: 45 },
+  {
+    id: 28,
+    date: "Dim, 15 Déc 2024",
+    venue: "Le Trianon",
+    city: "Paris",
+    price: 45,
+  },
   {
     id: 29,
-    date: "2024-12-17",
+    date: "Mar, 17 Déc 2024",
     venue: "Halle Tony Garnier",
     city: "Lyon",
     price: 40,
   },
-  { id: 30, date: "2024-12-19", venue: "Grand Rex", city: "Paris", price: 50 },
+  {
+    id: 30,
+    date: "Jeu, 19 Déc 2024",
+    venue: "Grand Rex",
+    city: "Paris",
+    price: 50,
+  },
   {
     id: 31,
-    date: "2024-12-21",
-    venue: "Stade Joseph Giaccobetti",
+    date: "Sam, 21 Déc 2024",
+    venue: "Stade J Giaccobetti",
     city: "Antisanti",
     price: 30,
   },
   {
     id: 32,
-    date: "2024-12-23",
-    venue: "Stade municipal de Baillif",
+    date: "Lun, 23 Déc 2024",
+    venue: "Stade mun' de Baillif",
     city: "Baillif",
     price: 35,
   },
-  { id: 33, date: "2024-12-25", venue: "Sarcelle", city: "Paris", price: 40 },
+  {
+    id: 33,
+    date: "Mer, 25 Déc 2024",
+    venue: "Sarcelle",
+    city: "Paris",
+    price: 40,
+  },
   {
     id: 34,
-    date: "2024-12-27",
+    date: "Ven, 27 Déc 2024",
     venue: "La Roche-sur-Yon",
     city: "Vendée",
     price: 30,
@@ -143,11 +167,11 @@ function Concerts() {
         {sortedConcerts.slice(0, visibleConcerts).map((concert) => (
           <div key={concert.id} className="concert-card">
             <div className="concert-info">
-              <div className="concert-item">{concert.date}</div>
-              <div className="concert-item">
+              <div className="concert-date">{concert.date}</div>
+              <div className="concert-city">
                 {concert.venue}, {concert.city}
+                <div className="concert-prix">{concert.price} €</div>
               </div>
-              <div className="concert-item">{concert.price} €</div>
             </div>
             <button
               type="button"
@@ -166,7 +190,7 @@ function Concerts() {
         className="add-more-button"
         onClick={toggleConcerts}
       >
-        {visibleConcerts === sortedConcerts.length ? "Réduire" : "Ajouter plus"}
+        {visibleConcerts === sortedConcerts.length ? "Réduire" : "Voir plus"}
       </button>
     </div>
   );

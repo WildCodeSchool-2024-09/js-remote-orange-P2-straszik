@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 200px;
+  padding: 12.5em;
 }
 
 /* Conteneur pour titre et image */
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
 }
 
 /* Titre principal */
@@ -40,9 +40,9 @@
 /* Carte de chaque concert */
 .concert-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 8px;
   padding: 10px;
   margin: 10px 0;
@@ -55,6 +55,33 @@
   width: 70%;
 }
 
+.concert-date {
+  padding: 0.75em;
+  width: 9em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-weight: bolder;
+  background-color: #564fad;
+  opacity: 0.9;
+  color: whitesmoke;
+  opacity: 1;
+}
+
+.concert-city {
+  padding: 0.75em;
+  width: 25em;
+  text-align: center;
+  margin-left: 3em;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bolder;
+  background-color: #564fad;
+  opacity: 0.9;
+  color: whitesmoke;
+}
+
 /* Case des éléments du concert (date, lieu, prix) */
 .concert-item {
   padding: 5px 10px;
@@ -64,24 +91,25 @@
 
 /* Bouton "Acheter le ticket" */
 .concert-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+  padding: 0.75em;
+  background-color: var(--primary-color);
   color: white;
+  height: 3.20em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 .h1-Wave {
   display: flex;
 }
+
 .concert-button:hover {
-  background-color: #0056b3;
+  background-color: var(--button-bg);
 }
 
-/* Bouton Ajouter plus / Réduire */
 .add-more-button {
-  padding: 10px 20px;
+  padding: 1em;
   background-color: #28a745;
   color: white;
   border: none;
