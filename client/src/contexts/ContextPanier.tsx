@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { FC, ReactNode } from "react";
 
-// Interface pour un élément du panier
 interface Item {
   id: number;
   nom: string;
@@ -10,7 +9,6 @@ interface Item {
   image_url: string;
 }
 
-// Interface pour le contexte du panier
 interface PanierContextType {
   panier: Item[];
   addPanier: (item: Item) => void;
@@ -29,46 +27,57 @@ const ProviderPanier: FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     const storedPanier = localStorage.getItem("panier");
     if (storedPanier) {
-      setPanier(JSON.parse(storedPanier));
+      try {
+        const parsedPanier = JSON.parse(storedPanier);
+        if (Array.isArray(parsedPanier)) {
+          setPanier(parsedPanier);
+        }
+      } catch (error) {
+        console.error("Erreur lors du chargement du panier :", error);
+      }
     }
   }, []);
 
-  // Sauvegarder dans localStorage à chaque mise à jour
-  useEffect(() => {
-    localStorage.setItem("panier", JSON.stringify(panier));
-  }, [panier]);
-
-  const addPanier = (item: Item) => {
-    setPanier((prev) => {
-      const existingItem = prev.find((i) => i.id === item.id);
-      if (existingItem) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, quantite: i.quantite + item.quantite } : i,
-        );
-      }
-      return [...prev, item];
-    });
+  // Fonction pour sauvegarder le panier dans localStorage
+  const sauvegarderPanier = (nouveauPanier: Item[]) => {
+    setPanier(nouveauPanier); // Met à jour l'état local
+    localStorage.setItem("panier", JSON.stringify(nouveauPanier)); // Sauvegarde dans localStorage
   };
 
-  const updateQuantite = (id: number, quantite: number) => {
-    setPanier((prev) =>
-      quantite > 0
-        ? prev.map((i) => (i.id === id ? { ...i, quantite } : i))
-        : prev.filter((i) => i.id !== id),
+  const addPanier = (item: Item) => {
+    sauvegarderPanier(
+      panier.some((i) => i.id === item.id)
+        ? panier.map((i) =>
+            i.id === item.id
+              ? { ...i, quantite: i.quantite + item.quantite }
+              : i,
+          )
+        : [...panier, item],
     );
   };
 
+  const updateQuantite = (id: number, quantite: number) => {
+    if (quantite > 0) {
+      sauvegarderPanier(
+        panier.map((i) => (i.id === id ? { ...i, quantite } : i)),
+      );
+    } else {
+      supprimerItem(id); // Supprimer si la quantité devient 0
+    }
+  };
+
   const supprimerItem = (id: number) => {
-    setPanier((prev) => prev.filter((item) => item.id !== id));
+    const nouveauPanier = panier.filter((item) => item.id !== id);
+    sauvegarderPanier(nouveauPanier); // Met à jour localStorage immédiatement après suppression
   };
 
   const clearPanier = () => {
-    setPanier([]);
+    localStorage.removeItem("panier"); // Vide complètement localStorage
+    setPanier([]); // Réinitialise l'état local
   };
 
-  const calculerTotal = () => {
-    return panier.reduce((total, item) => total + item.prix * item.quantite, 0);
-  };
+  const calculerTotal = () =>
+    panier.reduce((total, item) => total + item.prix * item.quantite, 0);
 
   return (
     <PanierContext.Provider

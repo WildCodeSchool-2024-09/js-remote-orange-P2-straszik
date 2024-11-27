@@ -62,7 +62,7 @@ li {
 }
 
 /* Vue mobile */
-@media screen and (max-width: 772px) {
+@media screen and (max-width: 771px) {
   .nav1,
   .nav2,
   ul {

@@ -18,6 +18,7 @@ const videos: Video[] = [
   { id: "u8bHjdljyLw", start: 25, zoom: 1.5 },
   { id: "vNpl-M3_9_o", start: 15, zoom: 1.5 },
   { id: "NmweQ43916w", start: 23, zoom: 1.5 },
+  { id: "9PODnRarD78", start: 18, zoom: 1.35 },
 ];
 
 // Fonction pour obtenir une vidéo aléatoire
