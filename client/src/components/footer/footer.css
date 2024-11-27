@@ -1,0 +1,113 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 15px;
+  background-color: transparent;
+  position: relative; /* Par défaut, footer est en position relative */
+}
+
+/* Le footer est en "fixed" uniquement sur la page "/" et "/albums" */
+body.home .footer,
+body.album .footer {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+}
+
+.social-icons a:hover {
+  background-color: rgb(168, 41, 241);
+}
+
+.footer-text {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  color: #ccc;
+  margin-left: 15px;
+}
+.footer-text a {
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-text a:hover {
+  color: rgb(168, 41, 241);
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* En colonne pour les tablettes et mobiles */
+    align-items: center;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    flex-direction: column;
+    display: block; /* Afficher le texte en mode responsive */
+  }
+  .social-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .social-icons a {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-text {
+    font-size: 10px;
+  }
+}
+
+body {
+  background-color: transparent;
+  margin-bottom: 0;
+}
+
+body.home,
+body.album {
+  background-color: transparent;
+}

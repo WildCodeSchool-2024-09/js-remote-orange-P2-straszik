@@ -1,0 +1,125 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.albums-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("./PnlWallpaper.jpg");
+  background-size: cover;
+  background-position: 50% 10%;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+.albums-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 50em;
+  margin: auto;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: absolute;
+}
+
+.carousel-slide img {
+  width: 87%;
+  height: auto;
+  max-width: 300px;
+  border-radius: 4em;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+  position: relative;
+}
+
+.carousel-slide.previous {
+  opacity: 0.6;
+  transform: scale(0.7);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) scale(0.7);
+  z-index: 1;
+}
+
+.carousel-slide.next {
+  opacity: 0.6;
+  transform: scale(0.7);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) scale(0.7);
+  z-index: 1;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: rgba(78, 87, 136, 1);
+  font-size: 3em;
+  cursor: pointer;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 762px) {
+  .albums-container {
+    background-image: url("https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg");
+  }
+  .carousel-slide.previous,
+  .carousel-slide.next {
+    display: none;
+  }
+}

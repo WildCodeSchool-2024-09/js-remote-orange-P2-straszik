@@ -1,0 +1,113 @@
+.faculty-glyphic-regular {
+  font-family: "Faculty Glyphic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navbar {
+  font-family: "Zilla Slab", serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 200%;
+  color: whitesmoke;
+  position: static;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin-left: 32px;
+}
+
+/* Logo centré */
+@media screen and (min-width: 773px) and (max-width: 1440px) {
+  .logo {
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+/* Style des liens de navigation */
+.nav1,
+.nav2,
+ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: whitesmoke;
+  gap: 0.5em;
+  text-decoration: none;
+}
+.navbar a:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  color: rgb(172, 59, 238);
+}
+/* Bouton burger */
+.burger-button {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+/* Vue mobile */
+@media screen and (max-width: 772px) {
+  .nav1,
+  .nav2,
+  ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .burger-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .logo {
+    flex-grow: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+}
+
+.burger-menu {
+  display: none;
+}
+
+/* Vue petits écrans */
+@media (max-width: 700px) {
+  .navbar {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+}
