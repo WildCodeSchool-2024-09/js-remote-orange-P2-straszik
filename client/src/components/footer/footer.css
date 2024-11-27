@@ -61,18 +61,6 @@ body.album .footer {
   color: rgb(168, 41, 241);
 }
 
-@media screen and (max-width: 1024px) {
-  .footer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .footer-text {
-    font-size: 14px;
-    display: inline-block;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .footer {
     flex-direction: column; /* En colonne pour les tablettes et mobiles */
