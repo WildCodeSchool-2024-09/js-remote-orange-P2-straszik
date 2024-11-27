@@ -11,7 +11,9 @@ function Panier() {
       <h1>Mon Panier</h1>
 
       {panier.length === 0 ? (
-        <p>Votre panier est vide.</p>
+        <p className="panier-vide" style={{ color: "whitesmoke" }}>
+          Votre panier est vide.
+        </p>
       ) : (
         <div className="grid-container">
           <div className="panier-items">
