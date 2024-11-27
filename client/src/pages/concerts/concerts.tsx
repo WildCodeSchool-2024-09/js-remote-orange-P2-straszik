@@ -113,11 +113,13 @@ const concertsArray: Concerts[] = [
 
 function Concerts() {
   const { addPanier } = usePanier();
-
   // Tri des concerts par date croissante
-  const sortedConcerts = [...concertsArray].sort((a, b) =>
-    a.date > b.date ? 1 : -1,
-  );
+  const sortedConcerts = [...concertsArray].sort((a, b) => {
+    // Enlever le jour de la semaine et convertir en objet Date
+    const dateA = new Date(a.date.slice(a.date.indexOf(",") + 2));
+    const dateB = new Date(b.date.slice(b.date.indexOf(",") + 2));
+    return dateA.getTime() - dateB.getTime();
+  });
 
   // État pour savoir combien de concerts afficher
   const [visibleConcerts, setVisibleConcerts] = useState(5);
