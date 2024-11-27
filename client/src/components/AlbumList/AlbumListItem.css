@@ -69,6 +69,8 @@
 }
 
 .title-id {
+  align-items: center;
+  padding-top: 0.6875em;
   display: flex;
   gap: 20px;
   width: 100%;
