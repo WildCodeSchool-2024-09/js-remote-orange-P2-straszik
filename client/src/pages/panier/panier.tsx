@@ -3,7 +3,8 @@ import { usePanier } from "../../contexts/ContextPanier";
 
 function Panier() {
   // Récupération du contexte du panier
-  const { panier, updateQuantite, supprimerItem, calculerTotal } = usePanier();
+  const { panier, updateQuantite, supprimerItem, calculerTotal, clearPanier } =
+    usePanier();
 
   return (
     <div className="panier-container">
@@ -53,7 +54,14 @@ function Panier() {
           <div className="panier-total">
             <h2>Total : {calculerTotal().toFixed(2)} €</h2>
           </div>
-          <button type="button" className="valider-btn">
+          <button
+            type="button"
+            className="valider-btn"
+            onClick={() => {
+              alert("Commande validée !");
+              clearPanier(); // Vide le panier après validation
+            }}
+          >
             Valider
           </button>
         </div>
