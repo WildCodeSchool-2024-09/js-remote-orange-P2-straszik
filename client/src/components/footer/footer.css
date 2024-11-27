@@ -6,7 +6,8 @@
   color: white;
   gap: 15px;
   background-color: transparent;
-  position: relative; /* Par défaut, footer est en position relative */
+  position: relative;
+  bottom: 10px;
 }
 
 /* Le footer est en "fixed" uniquement sur la page "/" et "/albums" */
