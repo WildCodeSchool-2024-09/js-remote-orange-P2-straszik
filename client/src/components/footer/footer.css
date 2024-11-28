@@ -6,7 +6,8 @@
   color: white;
   gap: 15px;
   background-color: transparent;
-  position: relative; /* Par défaut, footer est en position relative */
+  position: relative;
+  bottom: 10px;
 }
 
 /* Le footer est en "fixed" uniquement sur la page "/" et "/albums" */
@@ -59,18 +60,6 @@ body.album .footer {
 }
 .footer-text a:hover {
   color: rgb(168, 41, 241);
-}
-
-@media screen and (max-width: 1024px) {
-  .footer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .footer-text {
-    font-size: 14px;
-    display: inline-block;
-  }
 }
 
 @media screen and (max-width: 768px) {

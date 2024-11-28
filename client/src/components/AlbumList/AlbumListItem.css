@@ -29,12 +29,12 @@
   padding-top: 200px;
   border-radius: 10px;
   margin-bottom: 20px;
+  margin-right: 4.4%;
 }
 
 .album-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
 }
 
@@ -48,6 +48,7 @@
   height: auto;
   border-radius: 20px;
   display: flex;
+  align-self: flex-start;
 }
 
 .album-description {
@@ -68,6 +69,8 @@
 }
 
 .title-id {
+  align-items: center;
+  padding-top: 0.6875em;
   display: flex;
   gap: 20px;
   width: 100%;
@@ -190,7 +193,9 @@ input[type="range"]::-moz-range-thumb {
     align-items: center;
     margin-right: 38px;
   }
-
+  .album-title {
+    text-align: center;
+  }
   .album-img {
     justify-content: center;
     height: auto;

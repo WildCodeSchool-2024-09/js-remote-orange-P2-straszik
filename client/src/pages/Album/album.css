@@ -7,18 +7,56 @@ html {
 }
 
 .albums-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url("./PnlWallpaper.jpg");
+  height: 100vh;
+  overflow: hidden;
+}
+
+.albums-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./PnlWallpaper.jpg"); /* Image par défaut */
   background-size: cover;
   background-position: 50% 10%;
   background-repeat: no-repeat;
-  padding: 0;
-  margin: 0;
-  height: 100vh;
+  transition: opacity 0.8s ease-in-out; /* Transition fluide */
+  z-index: -1; /* Image derrière le contenu */
+  opacity: 1; /* Affiché par défaut */
+}
+
+.albums-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg"); /* Image pour mobile */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.8s ease-in-out; /* Transition fluide */
+  z-index: -2; /* Derrière la première image */
+  opacity: 0; /* Caché par défaut */
+}
+
+@media screen and (max-width: 762px) {
+  .albums-container::before {
+    opacity: 0; /* Cache l'image par défaut */
+  }
+
+  .albums-container::after {
+    opacity: 1; /* Affiche l'image mobile */
+  }
 }
 
 .albums-container h2 {
@@ -115,9 +153,6 @@ html {
 }
 
 @media screen and (max-width: 762px) {
-  .albums-container {
-    background-image: url("https://i.pinimg.com/236x/d6/8d/d5/d68dd5b1fdef813cfdf1afde72a016bc.jpg");
-  }
   .carousel-slide.previous,
   .carousel-slide.next {
     display: none;
